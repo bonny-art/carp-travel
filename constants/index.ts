@@ -31,6 +31,20 @@ export const HERO = {
     "We offer you unforgettable trips to the most beautiful parts of the Carpathians. Enjoy stunning views, exciting expeditions, and the best service!",
   button: {
     label: "join now",
+    iconSize: {
+      sm: {
+        width: 42,
+        height: 53,
+      },
+      md: {
+        width: 35,
+        height: 50,
+      },
+      lg: {
+        width: 44,
+        height: 71,
+      },
+    },
   },
 };
 
@@ -38,7 +52,7 @@ export const HERO = {
 export const ABOUT = {
   title: {
     accent: "we are",
-    text: "who ",
+    text: "Who ",
   },
   description: {
     firstAccent: "a team of enthusiasts ",
@@ -55,5 +69,70 @@ export const ABOUT = {
     first: "From vacationers ",
     second: "to active travelers",
     third: "we have a tour for everyone.",
+  },
+};
+
+// CAREER
+export const CAREER = {
+  title: {
+    accent: "us",
+    text: "Choose ",
+  },
+  description:
+    "Your chance to join our passionate team in Carpathian tourism. Seeking talented professionals to share our common mission.",
+  subtitle: "Why us ?",
+  list: [
+    {
+      title: "Professional development",
+      description:
+        "We offer growth opportunities and a creative environment to nurture your talents.",
+    },
+    {
+      title: "Teamwork",
+      description:
+        "Join our close-knit family, where support and inspiration abound.",
+    },
+    {
+      title: "Stimulating work environment",
+      description:
+        "Flexibility and remote options for a comfortable experience.",
+    },
+    {
+      title: "Exciting challenges",
+      description:
+        "Unleash your potential through unforgettable projects showcasing Carpathian beauty.",
+    },
+  ],
+  slogan: {
+    first: "Don't miss your opportunity!",
+
+    second: "Fill out the form right now and join our team!",
+  },
+  form: {
+    name: {
+      label: "Full name",
+      placeholder: "John Smith",
+    },
+    email: {
+      label: "E-mail",
+      placeholder: "johnsmith@email.com",
+    },
+    position: {
+      label: "Position",
+      placeholder: "Movie maker",
+    },
+    phone: {
+      label: "Phone",
+      placeholder: {
+        code: "+ 38",
+        number: "(097) 12 34 567",
+      },
+    },
+    message: {
+      label: "Message",
+      placeholder: "",
+    },
+    agreement: "I confirm my consent to the processing of personal data.",
+    button: "Send",
   },
 };

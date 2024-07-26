@@ -46,7 +46,7 @@ body {
   /* THIN */
 
   .thin-98-auto--4 {
-    @apply text-[98px] font-[100] leading-normal tracking-[-0.04em]; /* */
+    @apply text-[98px] font-[100] leading-[120%] tracking-[-0.04em]; /* */
   }
 
   .thin-98-auto-0 {
@@ -58,7 +58,7 @@ body {
   }
 
   .thin-67-auto-13 {
-    @apply text-[67px] font-[100] leading-normal tracking-[0.13em]; /* */
+    @apply text-[67px] font-[100] leading-[129%] tracking-[0.13em]; /* */
   }
 
   .thin-67-auto--4 {
@@ -226,7 +226,7 @@ body {
   }
 
   .medium-67-auto-0 {
-    @apply text-[67px] font-[500] leading-normal tracking-[0em]; /* */
+    @apply text-[67px] font-[500] leading-[129%] tracking-[0em]; /* */
   }
 
   .medium-40-56--4 {

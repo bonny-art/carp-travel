@@ -4,9 +4,15 @@ import { NAV } from "@/constants";
 
 const Navbar = () => {
   return (
-    <nav className="max-container padding-container flexBetween py-9 bg-transparent relative z-10">
+    <nav
+      className="max-container padding-container flexBetween 
+    py-9
+    md:pt-6 md:pb-[60px]
+    lg:pb-[46px]
+    bg-transparent relative z-10"
+    >
       <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={61} height={34} />
+        <Image src="/logo.svg" alt="logo" width={61} height={36} />
       </Link>
 
       <ul className="hidden md:flex gap-6 lg:gap-14">

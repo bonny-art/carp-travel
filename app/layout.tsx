@@ -22,7 +22,13 @@ export default function RootLayout({
           <Navbar />
         </header>
 
-        <main className="relative overflow-hidden -mt-[108px] pt-[108px]">
+        <main
+          className="relative overflow-hidden 
+        -mt-[108px] pt-[108px]
+        md:-mt-[120px] md:pt-[120px]
+        lg:-mt-[106px] lg:pt-[106px]
+        "
+        >
           {children}
         </main>
       </body>

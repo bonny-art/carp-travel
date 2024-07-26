@@ -10,7 +10,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "white-10": "rgba(255, 255, 255, 0.1)",
         orange: {
           50: "#FF5757",
         },
@@ -34,6 +33,9 @@ module.exports = {
       borderRadius: {
         "5xl": "40px",
       },
+      resize: {
+        none: "none",
+      },
     },
   },
   safelist: [
@@ -48,12 +50,6 @@ module.exports = {
       addComponents({
         ".bg-hero-xs": {
           backgroundImage: 'url("/bg-hero-xs@1x.jpg")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        },
-        ".bg-hero-sm": {
-          backgroundImage: 'url("/bg-hero-sm@1x.jpg")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -76,12 +72,6 @@ module.exports = {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         },
-        ".bg-about-sm": {
-          backgroundImage: 'url("/bg-about-sm@1x.jpg")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        },
         ".bg-about-md": {
           backgroundImage: 'url("/bg-about-md@1x.jpg")',
           backgroundSize: "cover",
@@ -94,13 +84,28 @@ module.exports = {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         },
+        ".bg-career-xs": {
+          backgroundImage: 'url("/bg-career-xs@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
+        ".bg-career-md": {
+          backgroundImage: 'url("/bg-career-md@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
+        ".bg-career-lg": {
+          backgroundImage: 'url("/bg-career-lg@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
         "@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)":
           {
             ".bg-hero-xs": {
               backgroundImage: 'url("/bg-hero-xs@2x.jpg")',
-            },
-            ".bg-hero-sm": {
-              backgroundImage: 'url("/bg-hero-sm@2x.jpg")',
             },
             ".bg-hero-md": {
               backgroundImage: 'url("/bg-hero-md@2x.jpg")',
@@ -111,14 +116,20 @@ module.exports = {
             ".bg-about-xs": {
               backgroundImage: 'url("/bg-about-xs@2x.jpg")',
             },
-            ".bg-about-sm": {
-              backgroundImage: 'url("/bg-about-sm@2x.jpg")',
-            },
             ".bg-about-md": {
               backgroundImage: 'url("/bg-about-md@2x.jpg")',
             },
             ".bg-about-lg": {
               backgroundImage: 'url("/bg-about-lg@2x.jpg")',
+            },
+            ".bg-career-xs": {
+              backgroundImage: 'url("/bg-career-xs@2x.jpg")',
+            },
+            ".bg-career-md": {
+              backgroundImage: 'url("/bg-career-md@2x.jpg")',
+            },
+            ".bg-career-lg": {
+              backgroundImage: 'url("/bg-career-lg@2x.jpg")',
             },
           },
       });
