@@ -57,7 +57,7 @@ const Hero = () => {
 
               <Link
                 href="contacts"
-                className="bold-18-48-0 inline-flex w-full justify-between items-center uppercase bg-white/10 hover:bg-white/20 focus:bg-white/20"
+                className="bold-18-48-0 inline-flex w-full justify-between items-center uppercase bg-white/10 hover:bg-white/20 focus:bg-white/20 focus:outline-none"
               >
                 <Image
                   src={`/btn-${iconSize}-left.svg`}
@@ -110,7 +110,7 @@ const Hero = () => {
 
                 <Link
                   href="contacts"
-                  className="bold-18-auto-bold lg:bold-32-auto-0 inline-flex w-full justify-between items-center uppercase bg-white/10 hover:bg-white/20 focus:bg-white/20"
+                  className="bold-18-auto-bold lg:bold-32-auto-0 inline-flex w-full justify-between items-center uppercase bg-white/10 hover:bg-white/20 focus:bg-white/20 focus:outline-none"
                 >
                   <Image
                     src={`/btn-${iconSize}-left.svg`}

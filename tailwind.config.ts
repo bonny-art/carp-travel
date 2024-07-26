@@ -36,6 +36,9 @@ module.exports = {
       resize: {
         none: "none",
       },
+      boxShadow: {
+        outline: "0 0 0 2px rgba(255, 255, 255, 0.5)",
+      },
     },
   },
   safelist: [

@@ -35,7 +35,9 @@ const formatPhoneNumber = (value: string): string => {
   if (!value) return value;
   const phoneNumber = value.replace(/\D/g, "");
   const phoneNumberLength = phoneNumber.length;
-  if (phoneNumberLength < 4) return phoneNumber;
+  if (phoneNumberLength > 0 && phoneNumberLength < 4) {
+    return `(${phoneNumber}`;
+  }
   if (phoneNumberLength < 6) {
     return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
   }
@@ -59,6 +61,7 @@ const CareerForm: React.FC = () => {
     register,
     handleSubmit,
     setValue,
+    watch,
     formState: { errors },
     trigger,
   } = useForm<CareerFormValues>({
@@ -73,7 +76,15 @@ const CareerForm: React.FC = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<CareerFormValues> = (data) => {
+  const nameValue = watch("name");
+  const emailValue = watch("email");
+  const positionValue = watch("position");
+  const phoneValue = watch("phone");
+  const messageValue = watch("message");
+
+  const onSubmit: SubmitHandler<CareerFormValues> = (
+    data: CareerFormValues
+  ) => {
     console.log(data);
   };
 
@@ -98,7 +109,7 @@ const CareerForm: React.FC = () => {
       className="flexStart flex-col gap-4 md:gap-[9px]"
     >
       <div className="flexStart flex-col gap-4 md:flex-row md:gap-5">
-        <div className="flexStart flex-col gap-4 lg:gap-6 w-[222px] lg:w-[290px]">
+        <div className="flexStart flex-col gap-4 lg:gap-6 md:w-[222px] lg:w-[290px]">
           {/* NAME */}
           <div className="flexStart flex-col gap-1 relative">
             <label
@@ -113,9 +124,11 @@ const CareerForm: React.FC = () => {
               placeholder="John Smith"
               {...register("name")}
               onBlur={() => trigger("name")}
-              className={`block w-full lg:h-7 px-2  bg-white/5 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
+              className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
                 errors.name ? "text-orange-50" : ""
-              } placeholder:text-white/20`}
+              } ${
+                nameValue ? "bg-white/10" : "bg-white/5"
+              }  placeholder:text-white/20`}
             />
             {errors.name && (
               <span className="extraLight-12-24-20 text-orange-50 inline-flex gap-1 absolute -bottom-[22px] right-0">
@@ -144,8 +157,10 @@ const CareerForm: React.FC = () => {
               placeholder="johnsmith@email.com"
               {...register("email")}
               onBlur={() => trigger("email")}
-              className={`block w-full lg:h-7 px-2  bg-white/5 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
+              className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
                 errors.name ? "text-orange-50" : ""
+              } ${
+                emailValue ? "bg-white/10" : "bg-white/5"
               } placeholder:text-white/20`}
             />
             {errors.email && (
@@ -175,8 +190,10 @@ const CareerForm: React.FC = () => {
               placeholder="Movie maker"
               {...register("position")}
               onBlur={() => trigger("position")}
-              className={`block w-full lg:h-7 px-2  bg-white/5 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
+              className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
                 errors.name ? "text-orange-50" : ""
+              } ${
+                positionValue ? "bg-white/10" : "bg-white/5"
               } placeholder:text-white/20`}
             />
             {errors.position && (
@@ -209,8 +226,10 @@ const CareerForm: React.FC = () => {
               placeholder={CAREER.form.phone.placeholder.number}
               value={formattedPhone}
               onChange={handlePhoneChange}
-              className={`block w-full lg:h-7 pr-2 pl-10 lg:pl-[57px] bg-white/5 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
+              className={`block w-full lg:h-7 pr-2 pl-10 lg:pl-[57px] extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
                 errors.name ? "text-orange-50" : ""
+              } ${
+                phoneValue ? "bg-white/10" : "bg-white/5"
               } placeholder:text-white/20`}
             />
             {errors.phone && (
@@ -234,7 +253,9 @@ const CareerForm: React.FC = () => {
             placeholder=""
             {...register("message")}
             onBlur={() => trigger("message")}
-            className="block w-full h-[196px] md:h-[228px] lg:h-[268px] px-2  bg-white/5 extraLight-13-24-0 lg:extraLight-20-24-0 resize-none focus:outline-none focus:ring-[1px] focus:ring-white/50 "
+            className={`block w-full h-[196px] md:h-[228px] lg:h-[268px] px-2 extraLight-13-24-0 lg:extraLight-20-24-0 resize-none focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
+              messageValue ? "bg-white/10" : "bg-white/5"
+            }`}
           />
         </div>
       </div>
@@ -252,7 +273,7 @@ const CareerForm: React.FC = () => {
           />
           <label
             htmlFor="agreement"
-            className="flex items-start gap-2 cursor-pointer focus:outline-none focus:ring-[1px] focus:ring-offset-2 focus:ring-blue-500"
+            className="flex items-start gap-2 cursor-pointer focus:outline-none focus:ring-[1px] focus:ring-white/50 select-none"
           >
             <Image
               src={isChecked ? "/checked.svg" : "/unchecked.svg"}
@@ -266,7 +287,7 @@ const CareerForm: React.FC = () => {
 
         <button
           type="submit"
-          className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end md:self-start focus:outline-none focus:ring-[1px] focus:ring-offset-2 focus:ring-white/50"
+          className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end md:self-start focus:outline-none focus:ring-[1px] focus:ring-white/50 px-2"
           disabled={!isChecked}
         >
           {CAREER.form.button}
