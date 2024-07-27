@@ -40,7 +40,8 @@ module.exports = {
         none: "none",
       },
       boxShadow: {
-        "slide-shadow": "0 0 100px 0 rgba(9, 20, 16, 0.5)",
+        "services-slide-shadow": "0 0 100px 0 rgba(9, 20, 16, 0.5)",
+        "gallery-slide-shadow": "0px 4px 4px rgba(0, 0, 0, 0.25)",
       },
     },
   },
@@ -226,6 +227,25 @@ module.exports = {
           backgroundRepeat: "no-repeat",
         },
 
+        ".bg-gallery-xs": {
+          backgroundImage: 'url("/bg-gallery-xs@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
+        ".bg-gallery-md": {
+          backgroundImage: 'url("/bg-gallery-md@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
+        ".bg-gallery-lg": {
+          backgroundImage: 'url("/bg-gallery-lg@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
+
         "@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)":
           {
             ".bg-hero-xs": {
@@ -306,6 +326,16 @@ module.exports = {
             },
             ".bg-career-lg": {
               backgroundImage: 'url("/bg-career-lg@2x.jpg")',
+            },
+
+            ".bg-gallery-xs": {
+              backgroundImage: 'url("/bg-gallery-xs@2x.jpg")',
+            },
+            ".bg-gallery-md": {
+              backgroundImage: 'url("/bg-gallery-md@2x.jpg")',
+            },
+            ".bg-gallery-lg": {
+              backgroundImage: 'url("/bg-gallery-lg@2x.jpg")',
             },
           },
       });

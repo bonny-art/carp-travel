@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Pagination } from "swiper/modules";
 import Image from "next/image";
 import { SERVICES } from "@/constants";
 
@@ -81,7 +81,7 @@ const ServicesSwiper = () => {
                     </span>
                   </p>
 
-                  <div className="w-full md:w-[463px] lg:w-[607px] h-[213px] md:h-[370px] lg:h-[429px] mb-3 self-center shadow-slide-shadow md:absolute md:top-[118px] md:left-0 lg:top-[166px] lg:left-6">
+                  <div className="w-full md:w-[463px] lg:w-[607px] h-[213px] md:h-[370px] lg:h-[429px] mb-3 self-center shadow-services-slide-shadow md:absolute md:top-[118px] md:left-0 lg:top-[166px] lg:left-6">
                     <Image
                       src={`/img-servicer-${formatNumber(index + 1)}.jpg`}
                       alt={item.title}

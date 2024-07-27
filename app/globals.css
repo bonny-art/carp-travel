@@ -62,7 +62,7 @@ body {
   }
 
   .thin-67-auto--4 {
-    @apply text-[67px] font-[100] leading-[130%] tracking-[-0.04em]; /* */
+    @apply text-[67px] font-[100] leading-[121%] tracking-[-0.04em]; /* */
   }
 
   .thin-43-auto-0 {
@@ -78,7 +78,7 @@ body {
   }
 
   .thin-33-auto-0 {
-    @apply text-[33px] font-[100] leading-normal tracking-[0em]; /* */
+    @apply text-[33px] font-[100] leading-[121%] tracking-[0em]; /* */
   }
 
   /* EXTRA LIGHT */

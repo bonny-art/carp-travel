@@ -212,3 +212,41 @@ export const CAREER = {
     button: "Send",
   },
 };
+
+// GALLERY
+export const GALLERY = {
+  title: {
+    accent: "gallery",
+    text: "Our ",
+  },
+  images: [
+    {
+      src: "/img-gallery-01.jpg",
+      alt: "Gallery image Mountain",
+    },
+    {
+      src: "/img-gallery-02.jpg",
+      alt: "Gallery image Lake",
+    },
+    {
+      src: "/img-gallery-03.jpg",
+      alt: "Gallery image Forest",
+    },
+    {
+      src: "/img-gallery-01.jpg",
+      alt: "Gallery image Mountain",
+    },
+    {
+      src: "/img-gallery-02.jpg",
+      alt: "Gallery image Lake",
+    },
+    {
+      src: "/img-gallery-03.jpg",
+      alt: "Gallery image Forest",
+    },
+  ],
+  buttons: {
+    prev: "Back",
+    next: "Next",
+  },
+};
