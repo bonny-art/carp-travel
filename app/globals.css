@@ -22,7 +22,7 @@ body {
   }
 
   .padding-container {
-    @apply px-5 md:px-8 lg:px-[104px];
+    @apply px-5 md:px-8 lg:px-[80px];
   }
 
   .flexCenter {
@@ -66,7 +66,7 @@ body {
   }
 
   .thin-43-auto-0 {
-    @apply text-[43px] font-[100] leading-normal tracking-[0em]; /* */
+    @apply text-[43px] font-[100] leading-[120.5%] tracking-[0em]; /* */
   }
 
   .thin-40-56--4 {
@@ -269,5 +269,19 @@ body {
 
   .bold-18-auto-0 {
     @apply text-[18px] font-[700] leading-normal tracking-[0em]; /* */
+  }
+
+  .services-pagination {
+    @apply absolute z-10 top-[475px] md:top-[182px] lg:top-[244px] left-5 sm:left-1/2 sm:transform sm:-translate-x-[220px] md:translate-x-[131px] lg:translate-x-[13px] flexStart flex-col gap-4 lg:gap-6 md:w-[221px] lg:w-auto;
+  }
+
+  .services-pagination-bullet {
+    @apply extraLight-20-17-0 md:extraLight-22-18-0 lg:extraLight-28-24-0 text-white/50 uppercase text-start focus:outline-none hover:text-white w-fit inline-flex;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .services-pagination-bullet-active {
+    @apply text-white font-medium flex items-center gap-2;
+    transition: color 0.3s ease, transform 0.3s ease;
   }
 }

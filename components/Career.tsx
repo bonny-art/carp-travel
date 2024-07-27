@@ -58,7 +58,7 @@ const Career = () => {
                 <span className="font-medium">{CAREER.title.accent}</span>
               </h2>
 
-              <p className="extraLight-13-20-0 lg:extraLight-18-24-0 w-[221px] lg:w-[293px] lg:mt-4 text-justify">
+              <p className="extraLight-13-20-0 lg:extraLight-18-24-0 w-[221px] lg:w-[293px] md:mt-2 lg:mt-4 text-justify">
                 {CAREER.description}
               </p>
             </div>

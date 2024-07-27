@@ -13,7 +13,7 @@ type CareerFormValues = {
   position: string;
   phone: string;
   message?: string;
-  agreement: boolean;
+  agreement?: boolean;
 };
 
 const schema = yup.object().shape({

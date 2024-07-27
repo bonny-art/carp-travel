@@ -10,7 +10,8 @@ export const NAV = {
     { key: "contacts", label: "Contacts" },
   ],
   button: {
-    text: "Menu",
+    menu: "Menu",
+    close: "Close",
   },
 };
 
@@ -69,6 +70,81 @@ export const ABOUT = {
     first: "From vacationers ",
     second: "to active travelers",
     third: "we have a tour for everyone.",
+  },
+};
+
+// SERVICES
+
+export const SERVICES = {
+  title: {
+    accent: "offer",
+    text: "We ",
+  },
+  slides: {
+    list: [
+      "ATVs Traveling",
+      "Rock climbing",
+      "Hot air ballooning",
+      "Skydiving",
+      "Rafting",
+    ],
+    content: [
+      {
+        title: "ATVs Traveling",
+        image: {
+          xs: "bg-services-01-xs",
+          md: "bg-services-01-md",
+          lg: "bg-services-01-lg",
+        },
+        slogan: "Feel the adrenaline rush",
+        description:
+          "Join exciting rafting expeditions on the waterways of the Carpathians. Go through challenging waterways and overcome gusty waves, feel the adrenaline, and enjoy the incredible views of the surrounding mountains.",
+      },
+      {
+        title: "Rock climbing",
+        image: {
+          xs: "bg-services-02-xs",
+          md: "bg-services-02-md",
+          lg: "bg-services-02-lg",
+        },
+        slogan: "Destroy your limitations",
+        description:
+          "Overcome the peaks of the Carpathians in a unique way - climbing. Make your own way to the heights and find inner peace in the embrace of the mighty rocks.",
+      },
+      {
+        title: "Hot air ballooning",
+        image: {
+          xs: "bg-services-03-xs",
+          md: "bg-services-03-md",
+          lg: "bg-services-03-lg",
+        },
+        slogan: "Get Inspired",
+        description:
+          "Feel Zen over the mountain peaks! Hot air ballooning gives you incredible impressions and panoramas of the Carpathians that seem endless.",
+      },
+      {
+        title: "Skydiving",
+        image: {
+          xs: "bg-services-04-xs",
+          md: "bg-services-04-md",
+          lg: "bg-services-04-lg",
+        },
+        slogan: "Overcome your fears",
+        description:
+          "Fly in the sky over the Carpathians! Experienced instructors will help you realize your dream of free flight. Remember the incredible emotions and panoramas from a bird's eye view forever.",
+      },
+      {
+        title: "Rafting",
+        image: {
+          xs: "bg-services-05-xs",
+          md: "bg-services-05-md",
+          lg: "bg-services-05-lg",
+        },
+        slogan: "Trust the flow",
+        description:
+          "Join exciting rafting expeditions on the waterways of the Carpathians. Go through challenging waterways and overcome gusty waves, feel the adrenaline, and enjoy the incredible views of the surrounding mountains.",
+      },
+    ],
   },
 };
 
