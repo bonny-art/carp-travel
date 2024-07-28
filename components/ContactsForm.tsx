@@ -5,6 +5,7 @@ import * as yup from "yup";
 import Image from "next/image";
 import { CONTACTS } from "@/constants";
 import useResponsive from "@/hooks/useResponsive";
+import { useCallback, useEffect } from "react";
 
 type ContactsFormValues = {
   name: string;
@@ -25,20 +26,24 @@ const contactsFormSchema = yup.object().shape({
 });
 
 const ContactsForm: React.FC = () => {
-  const { isTablet } = useResponsive();
+  const savedFormData = localStorage.getItem("contactsFormData");
+  const defaultValues = savedFormData
+    ? { ...JSON.parse(savedFormData) }
+    : {
+        name: "",
+        email: "",
+        message: "",
+      };
 
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
     trigger,
+    reset,
   } = useForm<ContactsFormValues>({
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
+    defaultValues,
     resolver: yupResolver(contactsFormSchema),
   });
 
@@ -46,11 +51,26 @@ const ContactsForm: React.FC = () => {
   const emailValue = watch("email");
   const messageValue = watch("message");
 
+  const saveFormData = useCallback(() => {
+    const formData = {
+      name: nameValue,
+      email: emailValue,
+      message: messageValue,
+    };
+    localStorage.setItem("contactsFormData", JSON.stringify(formData));
+  }, [nameValue, emailValue, messageValue]);
+
   const onSubmit: SubmitHandler<ContactsFormValues> = (
     data: ContactsFormValues
   ) => {
     console.log(data);
+    localStorage.removeItem("contactsFormData");
+    reset();
   };
+
+  useEffect(() => {
+    saveFormData();
+  }, [nameValue, emailValue, messageValue, saveFormData]);
 
   return (
     <form
@@ -167,10 +187,16 @@ const ContactsForm: React.FC = () => {
 
       <button
         type="submit"
+        disabled={!isValid}
         className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end focus:outline-none group relative"
       >
         {CONTACTS.form.button}
-        <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white       transform scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300" />
+        <span
+          className={`absolute bottom-0 left-0 w-full h-[1px] bg-white
+                transform scale-x-0 ${
+                  isValid && "group-hover:scale-x-100"
+                } group-focus:scale-x-100 transition-transform duration-300`}
+        />
       </button>
     </form>
   );

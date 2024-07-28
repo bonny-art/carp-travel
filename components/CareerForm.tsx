@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
   position: yup.string().required(CAREER.form.position.absent),
   phone: yup
     .string()
-    .matches(/^\d{9}$/, CAREER.form.phone.error)
+    .matches(/^\d{10}$/, CAREER.form.phone.error)
     .required(CAREER.form.phone.absent),
   message: yup.string(),
   agreement: yup.boolean().oneOf([true]),
@@ -39,22 +39,29 @@ const CareerForm: React.FC = () => {
   const { isTablet } = useResponsive();
   const [isChecked, setIsChecked] = useState(false);
   const [formattedPhone, setFormattedPhone] = useState("");
+
+  const savedFormData = localStorage.getItem("careerFormData");
+  const defaultValues = savedFormData
+    ? { ...JSON.parse(savedFormData), agreement: false }
+    : {
+        name: "",
+        email: "",
+        position: "",
+        phone: "",
+        message: "",
+        agreement: false,
+      };
+
   const {
     register,
     handleSubmit,
     setValue,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
     trigger,
+    reset,
   } = useForm<CareerFormValues>({
-    defaultValues: {
-      name: "",
-      email: "",
-      position: "",
-      phone: "",
-      message: "",
-      agreement: false,
-    },
+    defaultValues,
     resolver: yupResolver(schema),
   });
 
@@ -64,10 +71,29 @@ const CareerForm: React.FC = () => {
   const phoneValue = watch("phone");
   const messageValue = watch("message");
 
-  const onSubmit: SubmitHandler<CareerFormValues> = (
-    data: CareerFormValues
-  ) => {
+  const saveFormData = useCallback(() => {
+    const formData = {
+      name: nameValue,
+      email: emailValue,
+      position: positionValue,
+      phone: phoneValue,
+      message: messageValue,
+    };
+    localStorage.setItem("careerFormData", JSON.stringify(formData));
+  }, [nameValue, emailValue, positionValue, phoneValue, messageValue]);
+
+  useEffect(() => {
+    if (savedFormData) {
+      const formData = JSON.parse(savedFormData);
+      setFormattedPhone(formatPhoneNumber(formData.phone));
+    }
+  }, [savedFormData]);
+
+  const onSubmit: SubmitHandler<CareerFormValues> = (data) => {
     console.log(data);
+    localStorage.removeItem("careerFormData");
+    reset();
+    setFormattedPhone("");
   };
 
   const toggleCheckbox = () => {
@@ -79,11 +105,19 @@ const CareerForm: React.FC = () => {
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
-    const cleanedInput = input.replace(/\D/g, "");
+    const cleanedInput = input.replace(/\D/g, "").slice(0, 10);
     setFormattedPhone(formatPhoneNumber(cleanedInput));
-    setValue("phone", cleanedInput, { shouldValidate: true });
+    setValue("phone", cleanedInput);
+    saveFormData();
+  };
+
+  const handlePhoneBlur = () => {
     trigger("phone");
   };
+
+  useEffect(() => {
+    saveFormData();
+  }, [nameValue, emailValue, positionValue, messageValue, saveFormData]);
 
   return (
     <form
@@ -146,7 +180,7 @@ const CareerForm: React.FC = () => {
               {...register("email")}
               onBlur={() => trigger("email")}
               className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
-                errors.name ? "text-orange-50" : ""
+                errors.email ? "text-orange-50" : ""
               } ${
                 emailValue ? "bg-white/10" : "bg-white/5"
               } placeholder:text-white/20`}
@@ -219,6 +253,7 @@ const CareerForm: React.FC = () => {
               placeholder={CAREER.form.phone.placeholder.number}
               value={formattedPhone}
               onChange={handlePhoneChange}
+              onBlur={handlePhoneBlur}
               className={`block w-full lg:h-7 pr-2 pl-10 lg:pl-[57px] extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
                 errors.phone ? "text-orange-50" : ""
               } ${
@@ -283,14 +318,14 @@ const CareerForm: React.FC = () => {
 
         <button
           type="submit"
+          disabled={!isValid}
           className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end md:self-start focus:outline-none group relative"
-          disabled={!isChecked}
         >
           {CAREER.form.button}
           <span
             className={`absolute bottom-0 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 ${
-                  isChecked && "group-hover:scale-x-100"
+                  isValid && "group-hover:scale-x-100"
                 } group-focus:scale-x-100 transition-transform duration-300`}
           />
         </button>
