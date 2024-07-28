@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import Image from "next/image";
-import { CAREER } from "@/constants";
+import content from "@/public/data/content.json";
 import useResponsive from "@/hooks/useResponsive";
 import { careerFormSchema } from "@/validation/careerFormSchema";
 import { formatPhoneNumber } from "@/helpers/formatPhone";
@@ -115,7 +115,7 @@ const CareerForm = () => {
                 errors.name ? "text-orange-50" : ""
               }`}
             >
-              {CAREER.form.name.label}
+              {content.CAREER.form.name.label}
             </label>
             <input
               type="text"
@@ -151,7 +151,7 @@ const CareerForm = () => {
                 errors.email ? "text-orange-50" : ""
               }`}
             >
-              {CAREER.form.email.label}
+              {content.CAREER.form.email.label}
             </label>
             <input
               type="email"
@@ -187,12 +187,12 @@ const CareerForm = () => {
                 errors.position ? "text-orange-50" : ""
               }`}
             >
-              {CAREER.form.position.label}
+              {content.CAREER.form.position.label}
             </label>
             <input
               type="text"
               id="position"
-              placeholder={CAREER.form.position.placeholder}
+              placeholder={content.CAREER.form.position.placeholder}
               {...register("position")}
               onBlur={() => trigger("position")}
               className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
@@ -222,16 +222,16 @@ const CareerForm = () => {
                 errors.phone ? "text-orange-50" : ""
               }`}
             >
-              {CAREER.form.phone.label}
+              {content.CAREER.form.phone.label}
             </label>
             <span className="extraLight-13-24-0 lg:extraLight-20-24-0 absolute bottom-0 lg:bottom-0.5 left-2">
-              {CAREER.form.phone.placeholder.code}
+              {content.CAREER.form.phone.placeholder.code}
             </span>
             <input
               type="text"
               id="phone"
               autoComplete="phone"
-              placeholder={CAREER.form.phone.placeholder.number}
+              placeholder={content.CAREER.form.phone.placeholder.number}
               value={formattedPhone}
               onChange={handlePhoneChange}
               onBlur={handlePhoneBlur}
@@ -293,7 +293,9 @@ const CareerForm = () => {
               width={isTablet ? 22 : 24}
               height={isTablet ? 22 : 24}
             />
-            <span className="extraLight-12-22-0">{CAREER.form.agreement}</span>
+            <span className="extraLight-12-22-0">
+              {content.CAREER.form.agreement}
+            </span>
           </label>
         </div>
 
@@ -302,7 +304,7 @@ const CareerForm = () => {
           disabled={!isValid}
           className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end md:self-start focus:outline-none group relative"
         >
-          {CAREER.form.button}
+          {content.CAREER.form.button}
           <span
             className={`absolute bottom-0 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 ${

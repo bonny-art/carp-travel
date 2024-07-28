@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import Image from "next/image";
-import { CONTACTS } from "@/constants";
+import content from "@/public/data/content.json";
 import { useCallback, useEffect, useState } from "react";
 import { contactsFormSchema } from "@/validation/contactsFormSchema";
 
@@ -79,13 +79,13 @@ const ContactsForm = () => {
                 errors.name ? "text-orange-50" : ""
               }`}
             >
-              {CONTACTS.form.name.label}
+              {content.CONTACTS.form.name.label}
             </label>
             <input
               type="text"
               id="name"
               autoComplete="name"
-              placeholder={CONTACTS.form.name.placeholder}
+              placeholder={content.CONTACTS.form.name.placeholder}
               {...register("name")}
               onBlur={() => trigger("name")}
               className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
@@ -115,7 +115,7 @@ const ContactsForm = () => {
                 errors.email ? "text-orange-50" : ""
               }`}
             >
-              {CONTACTS.form.email.label}
+              {content.CONTACTS.form.email.label}
             </label>
             <input
               type="email"
@@ -152,7 +152,7 @@ const ContactsForm = () => {
               errors.message ? "text-orange-50" : ""
             }`}
           >
-            {CONTACTS.form.message.label}
+            {content.CONTACTS.form.message.label}
           </label>
           <textarea
             id="message"
@@ -182,7 +182,7 @@ const ContactsForm = () => {
         disabled={!isValid}
         className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end focus:outline-none group relative"
       >
-        {CONTACTS.form.button}
+        {content.CONTACTS.form.button}
         <span
           className={`absolute bottom-0 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 ${

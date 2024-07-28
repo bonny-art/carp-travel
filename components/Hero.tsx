@@ -1,17 +1,17 @@
 "use client";
 
-import { HERO } from "@/constants";
+import content from "@/public/data/content.json";
 import useResponsive from "@/hooks/useResponsive";
 import Image from "next/image";
 import Link from "next/link";
 import { Link as NavLink } from "react-scroll";
 import { useEffect, useState } from "react";
 
-type IconSize = "sm" | "md" | "lg";
+type IconSize = "sm" | "md" | "lg" | "";
 
 const Hero = () => {
   const { isMobile, isTablet, isDesktop } = useResponsive();
-  const [iconSize, setIconSize] = useState<IconSize>("sm");
+  const [iconSize, setIconSize] = useState<IconSize>("");
 
   useEffect(() => {
     if (isDesktop) {
@@ -34,27 +34,27 @@ const Hero = () => {
     >
       <div className="max-container padding-container overflow-hidden ">
         <div className="lg:p-6 flexBetween flex-col md:flex-row gap-6 md:justify-between">
-          {isMobile && (
+          {isMobile && iconSize && (
             <>
               <div className="self-end uppercase">
                 <div className="flexStart">
-                  <p className="medium-37-auto-0 ">{HERO.subtitle.accent}</p>
-                  <p className="thin-37-auto-4_5">{HERO.subtitle.big}</p>
+                  <p className="medium-37-auto-0 ">{content.HERO.subtitle.accent}</p>
+                  <p className="thin-37-auto-4_5">{content.HERO.subtitle.big}</p>
                 </div>
-                <p className="light-12-auto-79 -mt-3">{HERO.subtitle.small}</p>
+                <p className="light-12-auto-79 -mt-3">{content.HERO.subtitle.small}</p>
               </div>
 
               <h1 className="thin-40-56--4 uppercase">
-                <span className="medium-40-56--4">{HERO.title.accent}</span>
-                {HERO.title.text}
+                <span className="medium-40-56--4">{content.HERO.title.accent}</span>
+                {content.HERO.title.text}
               </h1>
 
               <p className="extraLight-10-16-0 w-[157px] break-words">
-                {HERO.places}
+                {content.HERO.places}
               </p>
 
               <p className="extraLight-14-20-0 text-justify">
-                {HERO.description}
+                {content.HERO.description}
               </p>
 
               <NavLink
@@ -68,30 +68,30 @@ const Hero = () => {
                 <Image
                   src={`/btn-${iconSize}-left.svg`}
                   alt="button-frame"
-                  width={HERO.button.iconSize.sm.width}
-                  height={HERO.button.iconSize.sm.height}
+                  width={content.HERO.button.iconSize.sm.width}
+                  height={content.HERO.button.iconSize.sm.height}
                 />
-                {HERO.button.label}
+                {content.HERO.button.label}
                 <Image
                   src={`/btn-${iconSize}-right.svg`}
                   alt="button-frame"
-                  width={HERO.button.iconSize.sm.width}
-                  height={HERO.button.iconSize.sm.height}
+                  width={content.HERO.button.iconSize.sm.width}
+                  height={content.HERO.button.iconSize.sm.height}
                 />
               </NavLink>
             </>
           )}
 
-          {!isMobile && (
+          {!isMobile && iconSize && (
             <>
               <div className="w-[426px] lg:w-[646px] flexBetween flex-col">
                 <h1 className="w-full thin-67-auto--4 lg:thin-98-auto--4 uppercase">
-                  <span className="font-medium">{HERO.title.accent}</span>
-                  {HERO.title.text}
+                  <span className="font-medium">{content.HERO.title.accent}</span>
+                  {content.HERO.title.text}
                 </h1>
 
                 <p className="extraLight-14-16-9 lg:extraLight-16-24-9 w-[263px] lg:w-full break-words">
-                  {HERO.places}
+                  {content.HERO.places}
                 </p>
               </div>
 
@@ -99,19 +99,19 @@ const Hero = () => {
                 <div className="self-end uppercase mb-14 lg:mb-[181px]">
                   <div className="flexStart">
                     <p className="medium-67-auto-0 lg:medium-98-auto-0">
-                      {HERO.subtitle.accent}
+                      {content.HERO.subtitle.accent}
                     </p>
                     <p className="thin-67-auto-13 lg:thin-98-auto-0">
-                      {HERO.subtitle.big}
+                      {content.HERO.subtitle.big}
                     </p>
                   </div>
                   <p className="light-14-auto-185 lg:light-16-auto-228 -mt-[15px]">
-                    {HERO.subtitle.small}
+                    {content.HERO.subtitle.small}
                   </p>
                 </div>
 
                 <p className="extraLight-16-20-0 lg:extraLight-18-24-0 text-justify mb-7">
-                  {HERO.description}
+                  {content.HERO.description}
                 </p>
 
                 <Link
@@ -123,28 +123,28 @@ const Hero = () => {
                     alt="button-frame"
                     width={
                       iconSize === "md"
-                        ? HERO.button.iconSize.md.width
-                        : HERO.button.iconSize.lg.width
+                        ? content.HERO.button.iconSize.md.width
+                        : content.HERO.button.iconSize.lg.width
                     }
                     height={
                       iconSize === "md"
-                        ? HERO.button.iconSize.md.height
-                        : HERO.button.iconSize.lg.height
+                        ? content.HERO.button.iconSize.md.height
+                        : content.HERO.button.iconSize.lg.height
                     }
                   />
-                  {HERO.button.label}
+                  {content.HERO.button.label}
                   <Image
                     src={`/btn-${iconSize}-right.svg`}
                     alt="button-frame"
                     width={
                       iconSize === "md"
-                        ? HERO.button.iconSize.md.width
-                        : HERO.button.iconSize.lg.width
+                        ? content.HERO.button.iconSize.md.width
+                        : content.HERO.button.iconSize.lg.width
                     }
                     height={
                       iconSize === "md"
-                        ? HERO.button.iconSize.md.height
-                        : HERO.button.iconSize.lg.height
+                        ? content.HERO.button.iconSize.md.height
+                        : content.HERO.button.iconSize.lg.height
                     }
                   />
                 </Link>

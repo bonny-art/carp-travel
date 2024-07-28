@@ -1,5 +1,4 @@
-import { NAV } from "@/constants";
-import Link from "next/link";
+import content from "@/public/data/content.json";
 import { Link as NavLink } from "react-scroll";
 
 type MobileMenuProps = {
@@ -14,12 +13,12 @@ const MobileMenu = ({ closeModal }: MobileMenuProps) => {
         className="absolute top-[43px] right-5 transition-transform duration-300  focus:outline-none group regular-14-auto-10 uppercase"
         onClick={closeModal}
       >
-        {NAV.button.close}
+        {content.NAV.button.close}
         <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white       transform scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300" />
       </button>
 
       <ul className="flex-col justify-center items-center gap-12 inline-flex">
-        {NAV.links.map((link) => (
+        {content.NAV.links.map((link) => (
           <li key={link.key} className="group relative">
             <NavLink
               to={link.key}

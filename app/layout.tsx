@@ -8,6 +8,30 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "CarpTravel",
   description: "Uncover Carpathian’s Secrets",
+  metadataBase:
+    process.env.NODE_ENV === "development"
+      ? new URL("http://localhost:3000")
+      : new URL("https://yourwebsite.vercel.app"),
+  openGraph: {
+    title: "CarpTravel",
+    description: "Uncover Carpathian’s Secrets",
+    type: "website",
+    url: "https://yourwebsite.com", // TODO: Update with your website URL
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "CarpTravel Open Graph Image",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CarpTravel",
+    description: "Uncover Carpathian’s Secrets",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({

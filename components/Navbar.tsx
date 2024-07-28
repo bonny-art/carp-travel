@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { NAV } from "@/constants";
+import content from "@/public/data/content.json";
 import MobileMenu from "./MobileMenu";
 import { useEffect, useState } from "react";
 import { Link as NavLink } from "react-scroll";
@@ -48,7 +48,7 @@ const Navbar = () => {
         </Link>
 
         <ul className="hidden md:flex gap-6 lg:gap-14">
-          {NAV.links.map((link) => (
+          {content.NAV.links.map((link) => (
             <li key={link.key} className="group relative self-end">
               <NavLink
                 to={link.key}
@@ -74,7 +74,7 @@ const Navbar = () => {
             className="uppercase md:hidden regular-14-auto-10"
             onClick={openModal}
           >
-            {NAV.button.menu}
+            {content.NAV.button.menu}
           </button>
         )}
 

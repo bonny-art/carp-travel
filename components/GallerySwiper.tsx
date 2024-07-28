@@ -5,7 +5,7 @@ import { EffectCoverflow, Navigation } from "swiper/modules";
 
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
-import { GALLERY } from "@/constants";
+import content from "@/public/data/content.json";
 import Image from "next/image";
 import useResponsive from "@/hooks/useResponsive";
 
@@ -37,7 +37,7 @@ const GallerySwiper = () => {
           modules={[EffectCoverflow, Navigation]}
           className="mySwiper w-full h-[294px] lg:h-[429px]"
         >
-          {GALLERY.images.map((slide, index) => (
+          {content.GALLERY.images.map((slide, index) => (
             <SwiperSlide
               key={index}
               className="!w-[415px] lg:!w-[606px] h-[294px] lg:h-[429px] bg-center bg-cover"
@@ -58,7 +58,7 @@ const GallerySwiper = () => {
               type="button"
               className="galley-swiper-button-prev thin-33-auto-0 uppercase inline-flex focus:outline-none group relative"
             >
-              {GALLERY.buttons.prev}
+              {content.GALLERY.buttons.prev}
               <span
                 className="absolute -bottom-1 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300"
@@ -70,7 +70,7 @@ const GallerySwiper = () => {
               type="button"
               className="galley-swiper-button-next thin-33-auto-0 uppercase inline-flex focus:outline-none group relative"
             >
-              {GALLERY.buttons.next}
+              {content.GALLERY.buttons.next}
               <span
                 className="absolute -bottom-1 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300"

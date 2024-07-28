@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination } from "swiper/modules";
 import Image from "next/image";
-import { SERVICES } from "@/constants";
+import content from "@/public/data/content.json";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -40,7 +40,7 @@ const ServicesSwiper = () => {
         modules={[EffectFade, Pagination]}
         className="mySwiper w-full h-full"
       >
-        {SERVICES.slides.content.map((item, index) => (
+        {content.SERVICES.slides.content.map((item, index) => (
           <SwiperSlide
             key={item.title}
             className={`w-full bg-services-${formatSlideNumber(
@@ -57,7 +57,9 @@ const ServicesSwiper = () => {
                   >
                     {formatSlideNumber(index + 1)}/
                     <span className="text-white/20">
-                      {formatSlideNumber(SERVICES.slides.content.length)}
+                      {formatSlideNumber(
+                        content.SERVICES.slides.content.length
+                      )}
                     </span>
                   </p>
 
@@ -85,7 +87,7 @@ const ServicesSwiper = () => {
       </Swiper>
 
       <div className="services-pagination">
-        {SERVICES.slides.list.map((item, index) => (
+        {content.SERVICES.slides.list.map((item, index) => (
           <button
             key={index}
             className={`services-pagination-bullet ${
