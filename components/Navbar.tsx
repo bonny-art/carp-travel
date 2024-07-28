@@ -32,18 +32,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className="outline outline-2 outline-red-400 max-container padding-container 
+      className="max-container padding-container 
     bg-transparent relative z-10"
     >
-      <div className="flexBetween     py-9    md:pt-6 md:pb-[60px]    lg:pb-[46px] lg:px-6">
+      <div className="flexBetween py-9 md:pt-6 md:pb-[60px] lg:pb-[46px] lg:px-6">
         <Link
           href="/"
-          className="group transition-transform duration-300 hover:scale-110 focus:scale-110 focus:outline-none "
+          className="group relative transition-transform duration-300 hover:scale-110 focus:scale-110 focus:outline-none "
         >
           <Image src="/logo.svg" alt="logo" width={61} height={36} />
           <span
             className="absolute -bottom-1 left-0 w-full h-[1px] bg-white
-                transform scale-x-0 group-focus:scale-x-100 transition-transform duration-300"
+                transform scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300"
           />
         </Link>
 

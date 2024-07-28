@@ -67,7 +67,7 @@ const ServicesSwiper = () => {
               index + 1
             )}-xs py-14 md:py-16 lg:py-20`}
           >
-            <div className="outline outline-2 outline-red-400 h-full max-container padding-container overflow-hidden">
+            <div className="h-full max-container padding-container overflow-hidden">
               <div className="lg:p-6 h-full md:relative">
                 <div className="flexBetween flex-col h-full md:w-[221px] lg:w-[605px] md:ml-auto">
                   <p
@@ -110,7 +110,7 @@ const ServicesSwiper = () => {
             key={index}
             className={`services-pagination-bullet ${
               index === activeIndex ? "services-pagination-bullet-active" : ""
-            }`}
+            } group relative`}
             onClick={() => handleBulletClick(index)}
           >
             {index === activeIndex && (
@@ -122,6 +122,10 @@ const ServicesSwiper = () => {
               />
             )}
             {formatText(item)}
+            <span
+              className="absolute -bottom-1 left-0 w-full h-[1px] bg-white
+                transform scale-x-0 group-focus:scale-x-100 transition-transform duration-300"
+            />
           </button>
         ))}
       </div>

@@ -1,3 +1,4 @@
+import { error } from "console";
 import { title } from "process";
 
 // NAVIGATION
@@ -188,14 +189,19 @@ export const CAREER = {
     name: {
       label: "Full name",
       placeholder: "John Smith",
+      error: "Incorrect name",
+      absent: "Name is required",
     },
     email: {
       label: "E-mail",
       placeholder: "johnsmith@email.com",
+      error: "Incorrect e-mail",
+      absent: "E-mail is required",
     },
     position: {
       label: "Position",
       placeholder: "Movie maker",
+      absent: "Position is required",
     },
     phone: {
       label: "Phone",
@@ -203,6 +209,8 @@ export const CAREER = {
         code: "+ 38",
         number: "(097) 12 34 567",
       },
+      error: "Incorrect phone",
+      absent: "Phone is required",
     },
     message: {
       label: "Message",
@@ -248,5 +256,63 @@ export const GALLERY = {
   buttons: {
     prev: "Back",
     next: "Next",
+  },
+};
+
+// CONTACTS
+export const CONTACTS = {
+  title: {
+    accent: "us",
+    text: "Contact ",
+  },
+
+  phone: {
+    label: "Phone number",
+    data: ["+380971234567", "+380731234567"],
+  },
+  email: {
+    label: "E-mail",
+    data: ["support@carptravel.com"],
+  },
+  socials: {
+    label: "Follow us",
+    data: [
+      {
+        network: "facebook",
+        link: "https://www.facebook.com/",
+      },
+      {
+        network: "instagram",
+        link: "https://www.instagram.com/",
+      },
+      {
+        network: "youtube",
+        link: "https://www.youtube.com/",
+      },
+      {
+        network: "tiktok",
+        link: "https://www.tiktok.com/",
+      },
+    ],
+  },
+  form: {
+    name: {
+      label: "Full name",
+      placeholder: "John Smith",
+      error: "Incorrect name",
+      absent: "Name is required",
+    },
+    email: {
+      label: "E-mail",
+      placeholder: "johnsmith@email.com",
+      error: "Incorrect e-mail",
+      absent: "E-mail is required",
+    },
+    message: {
+      label: "Message",
+      placeholder: "",
+      absent: "Message is required",
+    },
+    button: "Send",
   },
 };

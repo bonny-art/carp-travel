@@ -246,6 +246,25 @@ module.exports = {
           backgroundRepeat: "no-repeat",
         },
 
+        ".bg-contacts-xs": {
+          backgroundImage: 'url("/bg-contacts-xs@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
+        ".bg-contacts-md": {
+          backgroundImage: 'url("/bg-contacts-md@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
+        ".bg-contacts-lg": {
+          backgroundImage: 'url("/bg-contacts-lg@1x.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        },
+
         "@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)":
           {
             ".bg-hero-xs": {
@@ -336,6 +355,16 @@ module.exports = {
             },
             ".bg-gallery-lg": {
               backgroundImage: 'url("/bg-gallery-lg@2x.jpg")',
+            },
+
+            ".bg-contacts-xs": {
+              backgroundImage: 'url("/bg-contacts-xs@2x.jpg")',
+            },
+            ".bg-contacts-md": {
+              backgroundImage: 'url("/bg-contacts-md@2x.jpg")',
+            },
+            ".bg-contacts-lg": {
+              backgroundImage: 'url("/bg-contacts-lg@2x.jpg")',
             },
           },
       });

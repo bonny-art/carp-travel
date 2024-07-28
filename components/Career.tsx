@@ -12,7 +12,7 @@ const Career = () => {
       {isMobile ? (
         <>
           <div className="py-14 bg-career-xs">
-            <div className="outline outline-2 outline-red-400 max-container padding-container overflow-hidden flexStart flex-col gap-6">
+            <div className="max-container padding-container overflow-hidden flexStart flex-col gap-6">
               <h2 className="thin-40-56--4 uppercase">
                 {CAREER.title.text}
                 <span className="font-medium">{CAREER.title.accent}</span>
@@ -40,7 +40,7 @@ const Career = () => {
           </div>
 
           <div className="py-14 bg-career-xs">
-            <div className="outline outline-2 outline-red-400 max-container padding-container overflow-hidden flexStart flex-col gap-6 ">
+            <div className="max-container padding-container overflow-hidden flexStart flex-col gap-6 ">
               <p className="extraLight-14-20-0 w-[179px] self-end">
                 {CAREER.slogan.first}
                 <br /> {CAREER.slogan.second}
@@ -50,7 +50,7 @@ const Career = () => {
           </div>
         </>
       ) : (
-        <div className="outline outline-2 outline-red-400 max-container padding-container overflow-hidden">
+        <div className="max-container padding-container overflow-hidden">
           <div className="lg:p-6 flexStart flex-col gap-[5px]">
             <div className="flexBetween">
               <h2 className="thin-67-auto--4 lg:thin-98-auto--4 uppercase">

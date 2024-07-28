@@ -8,7 +8,7 @@ const About = () => {
 
   return (
     <section className=" py-14 md:py-16 lg:py-20 bg-about-xs md:bg-about-md lg:bg-about-lg  ">
-      <div className="outline outline-2 outline-red-400 max-container padding-container overflow-hidden ">
+      <div className="max-container padding-container overflow-hidden ">
         <div className="lg:p-6 flexStart flex-col gap-5 md:gap-16 lg:flex-row lg:gap-6">
           {isMobile && (
             <>

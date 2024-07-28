@@ -6,6 +6,7 @@ import * as yup from "yup";
 import Image from "next/image";
 import { CAREER } from "@/constants";
 import useResponsive from "@/hooks/useResponsive";
+import { formatPhoneNumber } from "@/helpers/phoneFormatter";
 
 type CareerFormValues = {
   name: string;
@@ -19,39 +20,20 @@ type CareerFormValues = {
 const schema = yup.object().shape({
   name: yup
     .string()
-    .matches(/^[^0-9]*$/, "Incorrect name")
-    .required("Name is required"),
-  email: yup.string().email("Incorrect e-mail").required("E-mail is required"),
-  position: yup.string().required("Position is required"),
+    .matches(/^[^0-9]*$/, CAREER.form.name.error)
+    .required(CAREER.form.name.absent),
+  email: yup
+    .string()
+    .email(CAREER.form.email.error)
+    .required(CAREER.form.email.absent),
+  position: yup.string().required(CAREER.form.position.absent),
   phone: yup
     .string()
-    .matches(/^\d{9}$/, "Incorrect phone")
-    .required("Phone is required"),
+    .matches(/^\d{9}$/, CAREER.form.phone.error)
+    .required(CAREER.form.phone.absent),
   message: yup.string(),
   agreement: yup.boolean().oneOf([true]),
 });
-
-const formatPhoneNumber = (value: string): string => {
-  if (!value) return value;
-  const phoneNumber = value.replace(/\D/g, "");
-  const phoneNumberLength = phoneNumber.length;
-  if (phoneNumberLength > 0 && phoneNumberLength < 4) {
-    return `(${phoneNumber}`;
-  }
-  if (phoneNumberLength < 6) {
-    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
-  }
-  if (phoneNumberLength < 8) {
-    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
-      3,
-      5
-    )} ${phoneNumber.slice(5)}`;
-  }
-  return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
-    3,
-    5
-  )} ${phoneNumber.slice(5, 7)} ${phoneNumber.slice(7, 10)}`;
-};
 
 const CareerForm: React.FC = () => {
   const { isTablet } = useResponsive();
@@ -113,6 +95,7 @@ const CareerForm: React.FC = () => {
           {/* NAME */}
           <div className="flexStart flex-col gap-1 relative">
             <label
+              htmlFor="name"
               className={`extraLight-12-24-20 ${
                 errors.name ? "text-orange-50" : ""
               }`}
@@ -121,6 +104,8 @@ const CareerForm: React.FC = () => {
             </label>
             <input
               type="text"
+              id="name"
+              autoComplete="name"
               placeholder="John Smith"
               {...register("name")}
               onBlur={() => trigger("name")}
@@ -146,6 +131,7 @@ const CareerForm: React.FC = () => {
           {/* EMAIL */}
           <div className="flexStart flex-col gap-1 relative">
             <label
+              htmlFor="email"
               className={`extraLight-12-24-20 ${
                 errors.email ? "text-orange-50" : ""
               }`}
@@ -154,6 +140,8 @@ const CareerForm: React.FC = () => {
             </label>
             <input
               type="email"
+              id="email"
+              autoComplete="email"
               placeholder="johnsmith@email.com"
               {...register("email")}
               onBlur={() => trigger("email")}
@@ -179,6 +167,7 @@ const CareerForm: React.FC = () => {
           {/* POSITION */}
           <div className="flexStart flex-col gap-1 relative">
             <label
+              htmlFor="position"
               className={`extraLight-12-24-20 ${
                 errors.position ? "text-orange-50" : ""
               }`}
@@ -187,7 +176,8 @@ const CareerForm: React.FC = () => {
             </label>
             <input
               type="text"
-              placeholder="Movie maker"
+              id="position"
+              placeholder={CAREER.form.position.placeholder}
               {...register("position")}
               onBlur={() => trigger("position")}
               className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
@@ -212,6 +202,7 @@ const CareerForm: React.FC = () => {
           {/* PHONE */}
           <div className="flexStart flex-col gap-1 relative">
             <label
+              htmlFor="phone"
               className={`extraLight-12-24-20 ${
                 errors.phone ? "text-orange-50" : ""
               }`}
@@ -223,11 +214,13 @@ const CareerForm: React.FC = () => {
             </span>
             <input
               type="text"
+              id="phone"
+              autoComplete="phone"
               placeholder={CAREER.form.phone.placeholder.number}
               value={formattedPhone}
               onChange={handlePhoneChange}
               className={`block w-full lg:h-7 pr-2 pl-10 lg:pl-[57px] extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
-                errors.name ? "text-orange-50" : ""
+                errors.phone ? "text-orange-50" : ""
               } ${
                 phoneValue ? "bg-white/10" : "bg-white/5"
               } placeholder:text-white/20`}
@@ -248,8 +241,11 @@ const CareerForm: React.FC = () => {
 
         {/* MESSAGE */}
         <div className="flexStart flex-col gap-1 md:w-[221px] lg:w-[292px]">
-          <label className="extraLight-12-24-20">Message</label>
+          <label htmlFor="message" className="extraLight-12-24-20">
+            Message
+          </label>
           <textarea
+            id="message"
             placeholder=""
             {...register("message")}
             onBlur={() => trigger("message")}
@@ -287,10 +283,16 @@ const CareerForm: React.FC = () => {
 
         <button
           type="submit"
-          className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end md:self-start focus:outline-none focus:ring-[1px] focus:ring-white/50 px-2"
+          className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end md:self-start focus:outline-none group relative"
           disabled={!isChecked}
         >
           {CAREER.form.button}
+          <span
+            className={`absolute bottom-0 left-0 w-full h-[1px] bg-white
+                transform scale-x-0 ${
+                  isChecked && "group-hover:scale-x-100"
+                } group-focus:scale-x-100 transition-transform duration-300`}
+          />
         </button>
       </div>
     </form>

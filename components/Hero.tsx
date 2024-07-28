@@ -30,7 +30,7 @@ const Hero = () => {
     md:-mt-[120px] md:pt-[120px]
     lg:-mt-[106px] lg:pt-[106px]"
     >
-      <div className="outline outline-2 outline-red-400 max-container padding-container overflow-hidden ">
+      <div className="max-container padding-container overflow-hidden ">
         <div className="lg:p-6 flexBetween flex-col md:flex-row gap-6 md:justify-between">
           {isMobile && (
             <>
