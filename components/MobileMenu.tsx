@@ -6,7 +6,7 @@ type MobileMenuProps = {
   closeModal: () => void;
 };
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ closeModal }) => {
+const MobileMenu = ({ closeModal }: MobileMenuProps) => {
   return (
     <div className="bg-green-10/75 backdrop-blur-[50px] block top-0 left-0 bottom-0 right-0 fixed flexCenter z-20   ">
       <button

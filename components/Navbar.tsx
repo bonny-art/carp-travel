@@ -24,7 +24,6 @@ const Navbar = () => {
       document.body.style.overflow = "auto";
     }
 
-    // Clean up function to remove the style when component unmounts
     return () => {
       document.body.style.overflow = "auto";
     };

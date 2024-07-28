@@ -1,14 +1,11 @@
 "use client";
 
 import { CONTACTS } from "@/constants";
-import useResponsive from "@/hooks/useResponsive";
 import ContactsForm from "./ContactsForm";
 import Link from "next/link";
-import { formatPhoneNumberWithCode } from "@/helpers/phoneFormatter";
+import { formatPhoneNumberWithCode } from "@/helpers/formatPhone";
 
 const Contacts = () => {
-  const { isMobile } = useResponsive();
-
   return (
     <section className="py-14 md:py-16 lg:py-20 bg-contacts-xs md:bg-contacts-md lg:bg-contacts-lg">
       <div className="max-container padding-container overflow-hidden ">

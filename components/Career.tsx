@@ -1,6 +1,6 @@
 "use client";
 
-import { ABOUT, CAREER } from "@/constants";
+import { CAREER } from "@/constants";
 import useResponsive from "@/hooks/useResponsive";
 import CareerForm from "./CareerForm";
 

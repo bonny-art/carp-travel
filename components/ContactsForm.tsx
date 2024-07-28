@@ -1,11 +1,10 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 
 import Image from "next/image";
 import { CONTACTS } from "@/constants";
-import useResponsive from "@/hooks/useResponsive";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { contactsFormSchema } from "@/validation/contactsFormSchema";
 
 type ContactsFormValues = {
   name: string;
@@ -13,27 +12,20 @@ type ContactsFormValues = {
   message: string;
 };
 
-const contactsFormSchema = yup.object().shape({
-  name: yup
-    .string()
-    .matches(/^[^0-9]*$/, CONTACTS.form.name.error)
-    .required(CONTACTS.form.name.absent),
-  email: yup
-    .string()
-    .email(CONTACTS.form.email.error)
-    .required(CONTACTS.form.email.absent),
-  message: yup.string().required(CONTACTS.form.message.absent),
-});
+const ContactsForm = () => {
+  const [defaultValues, setDefaultValues] = useState<ContactsFormValues>({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-const ContactsForm: React.FC = () => {
-  const savedFormData = localStorage.getItem("contactsFormData");
-  const defaultValues = savedFormData
-    ? { ...JSON.parse(savedFormData) }
-    : {
-        name: "",
-        email: "",
-        message: "",
-      };
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("contactsFormData");
+    if (savedFormData) {
+      const formData = JSON.parse(savedFormData);
+      setDefaultValues({ ...formData, agreement: false });
+    }
+  }, []);
 
   const {
     register,

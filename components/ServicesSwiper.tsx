@@ -9,29 +9,9 @@ import "swiper/css/pagination";
 import { useRef, useState } from "react";
 
 import { Swiper as SwiperType } from "swiper";
-
-const formatNumber = (number: number): string => {
-  return number.toString().padStart(2, "0");
-};
-
-const formatText = (text: string) => {
-  if (text === "Hot air ballooning") {
-    return (
-      <>
-        Hot air
-        <br />
-        ballooning
-      </>
-    );
-  }
-  return text;
-};
-
-const getMarginBottom = (activeIndex: number) => {
-  const margins = [15, 63, 111, 183, 231];
-  const margin = margins[activeIndex] || 15;
-  return `lg:mb-[${margin}px]`;
-};
+import { formatSlideNumber } from "@/helpers/formatSlideNumber";
+import { formatSlideName } from "@/helpers/formatText";
+import { getMarginBottomValue } from "@/helpers/getMarginBottomValue";
 
 const ServicesSwiper = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -63,7 +43,7 @@ const ServicesSwiper = () => {
         {SERVICES.slides.content.map((item, index) => (
           <SwiperSlide
             key={item.title}
-            className={`w-full bg-services-${formatNumber(
+            className={`w-full bg-services-${formatSlideNumber(
               index + 1
             )}-xs py-14 md:py-16 lg:py-20`}
           >
@@ -71,19 +51,19 @@ const ServicesSwiper = () => {
               <div className="lg:p-6 h-full md:relative">
                 <div className="flexBetween flex-col h-full md:w-[221px] lg:w-[605px] md:ml-auto">
                   <p
-                    className={`mt-[78px] md:mt-0 thin-43-auto-0 md:thin-67-78-0 lg:thin-98-auto-0 self-end lg:self-start mb-4 md:mb-[237px] ${getMarginBottom(
+                    className={`mt-[78px] md:mt-0 thin-43-auto-0 md:thin-67-78-0 lg:thin-98-auto-0 self-end lg:self-start mb-4 md:mb-[237px] ${getMarginBottomValue(
                       activeIndex
                     )}`}
                   >
-                    {formatNumber(index + 1)}/
+                    {formatSlideNumber(index + 1)}/
                     <span className="text-white/20">
-                      {formatNumber(SERVICES.slides.content.length)}
+                      {formatSlideNumber(SERVICES.slides.content.length)}
                     </span>
                   </p>
 
                   <div className="w-full md:w-[463px] lg:w-[607px] h-[213px] md:h-[370px] lg:h-[429px] mb-3 self-center shadow-services-slide-shadow md:absolute md:top-[118px] md:left-0 lg:top-[166px] lg:left-6">
                     <Image
-                      src={`/img-servicer-${formatNumber(index + 1)}.jpg`}
+                      src={`/img-servicer-${formatSlideNumber(index + 1)}.jpg`}
                       alt={item.title}
                       width={560}
                       height={426}
@@ -121,7 +101,7 @@ const ServicesSwiper = () => {
                 height={9}
               />
             )}
-            {formatText(item)}
+            {formatSlideName(item)}
             <span
               className="absolute -bottom-1 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 group-focus:scale-x-100 transition-transform duration-300"

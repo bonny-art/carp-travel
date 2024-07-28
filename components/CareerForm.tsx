@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 
 import Image from "next/image";
 import { CAREER } from "@/constants";
 import useResponsive from "@/hooks/useResponsive";
-import { formatPhoneNumber } from "@/helpers/phoneFormatter";
+import { careerFormSchema } from "@/validation/careerFormSchema";
+import { formatPhoneNumber } from "@/helpers/formatPhone";
 
 type CareerFormValues = {
   name: string;
@@ -17,40 +17,28 @@ type CareerFormValues = {
   agreement?: boolean;
 };
 
-const schema = yup.object().shape({
-  name: yup
-    .string()
-    .matches(/^[^0-9]*$/, CAREER.form.name.error)
-    .required(CAREER.form.name.absent),
-  email: yup
-    .string()
-    .email(CAREER.form.email.error)
-    .required(CAREER.form.email.absent),
-  position: yup.string().required(CAREER.form.position.absent),
-  phone: yup
-    .string()
-    .matches(/^\d{10}$/, CAREER.form.phone.error)
-    .required(CAREER.form.phone.absent),
-  message: yup.string(),
-  agreement: yup.boolean().oneOf([true]),
-});
-
-const CareerForm: React.FC = () => {
+const CareerForm = () => {
   const { isTablet } = useResponsive();
   const [isChecked, setIsChecked] = useState(false);
   const [formattedPhone, setFormattedPhone] = useState("");
 
-  const savedFormData = localStorage.getItem("careerFormData");
-  const defaultValues = savedFormData
-    ? { ...JSON.parse(savedFormData), agreement: false }
-    : {
-        name: "",
-        email: "",
-        position: "",
-        phone: "",
-        message: "",
-        agreement: false,
-      };
+  const [defaultValues, setDefaultValues] = useState<CareerFormValues>({
+    name: "",
+    email: "",
+    position: "",
+    phone: "",
+    message: "",
+    agreement: false,
+  });
+
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("careerFormData");
+    if (savedFormData) {
+      const formData = JSON.parse(savedFormData);
+      setDefaultValues({ ...formData, agreement: false });
+      setFormattedPhone(formatPhoneNumber(formData.phone));
+    }
+  }, []);
 
   const {
     register,
@@ -62,7 +50,7 @@ const CareerForm: React.FC = () => {
     reset,
   } = useForm<CareerFormValues>({
     defaultValues,
-    resolver: yupResolver(schema),
+    resolver: yupResolver(careerFormSchema),
   });
 
   const nameValue = watch("name");
@@ -81,13 +69,6 @@ const CareerForm: React.FC = () => {
     };
     localStorage.setItem("careerFormData", JSON.stringify(formData));
   }, [nameValue, emailValue, positionValue, phoneValue, messageValue]);
-
-  useEffect(() => {
-    if (savedFormData) {
-      const formData = JSON.parse(savedFormData);
-      setFormattedPhone(formatPhoneNumber(formData.phone));
-    }
-  }, [savedFormData]);
 
   const onSubmit: SubmitHandler<CareerFormValues> = (data) => {
     console.log(data);
