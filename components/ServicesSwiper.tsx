@@ -28,7 +28,7 @@ const ServicesSwiper = () => {
     <>
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         spaceBetween={30}
         effect={"fade"}
         pagination={{
