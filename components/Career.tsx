@@ -8,7 +8,10 @@ const Career = () => {
   const { isMobile } = useResponsive();
 
   return (
-    <section className=" md:py-16 lg:py-20 md:bg-career-md lg:bg-career-lg  ">
+    <section
+      id="career"
+      className=" md:py-16 lg:py-20 md:bg-career-md lg:bg-career-lg  "
+    >
       {isMobile ? (
         <>
           <div className="py-14 bg-career-xs">

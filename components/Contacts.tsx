@@ -7,7 +7,10 @@ import { formatPhoneNumberWithCode } from "@/helpers/formatPhone";
 
 const Contacts = () => {
   return (
-    <section className="py-14 md:py-16 lg:py-20 bg-contacts-xs md:bg-contacts-md lg:bg-contacts-lg">
+    <section
+      id="contacts"
+      className="py-14 md:py-16 lg:py-20 bg-contacts-xs md:bg-contacts-md lg:bg-contacts-lg"
+    >
       <div className="max-container padding-container overflow-hidden ">
         <div className="lg:p-6 flexStart flex-col gap-9 lg:gap-[71px]">
           <h2 className="thin-40-56--4 md:thin-67-66--4 lg:thin-98-auto--4 lg:ml-6 uppercase">

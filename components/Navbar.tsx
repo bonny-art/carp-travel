@@ -5,6 +5,7 @@ import Link from "next/link";
 import { NAV } from "@/constants";
 import MobileMenu from "./MobileMenu";
 import { useEffect, useState } from "react";
+import { Link as NavLink } from "react-scroll";
 
 const Navbar = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
@@ -49,16 +50,20 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-6 lg:gap-14">
           {NAV.links.map((link) => (
             <li key={link.key} className="group relative self-end">
-              <Link
+              <NavLink
+                to={link.key}
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={0}
                 className="group cursor-pointer regular-14-auto-10 focus:outline-none"
-                href={link.key}
               >
                 {link.label}
                 <span
                   className="absolute bottom-0 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300"
                 />
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>

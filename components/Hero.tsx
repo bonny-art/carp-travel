@@ -4,6 +4,7 @@ import { HERO } from "@/constants";
 import useResponsive from "@/hooks/useResponsive";
 import Image from "next/image";
 import Link from "next/link";
+import { Link as NavLink } from "react-scroll";
 import { useEffect, useState } from "react";
 
 type IconSize = "sm" | "md" | "lg";
@@ -24,6 +25,7 @@ const Hero = () => {
 
   return (
     <section
+      id="hero"
       className=" pb-14 md:pb-16 lg:pb-20 
     bg-hero-xs md:bg-hero-md lg:bg-hero-lg
     -mt-[108px] pt-[108px]
@@ -55,9 +57,13 @@ const Hero = () => {
                 {HERO.description}
               </p>
 
-              <Link
-                href="contacts"
-                className="bold-18-48-0 inline-flex w-full justify-between items-center uppercase bg-white/10 hover:bg-white/20 focus:bg-white/20 focus:outline-none"
+              <NavLink
+                to="contacts"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={0}
+                className="bold-18-48-0 inline-flex w-full justify-between items-center uppercase bg-white/10 hover:bg-white/20 focus:bg-white/20 focus:outline-none cursor-pointer"
               >
                 <Image
                   src={`/btn-${iconSize}-left.svg`}
@@ -72,7 +78,7 @@ const Hero = () => {
                   width={HERO.button.iconSize.sm.width}
                   height={HERO.button.iconSize.sm.height}
                 />
-              </Link>
+              </NavLink>
             </>
           )}
 
