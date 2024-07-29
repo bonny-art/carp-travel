@@ -5,28 +5,13 @@ import Image from "next/image";
 import content from "@/public/data/content.json";
 import { useCallback, useEffect, useState } from "react";
 import { contactsFormSchema } from "@/validation/contactsFormSchema";
+import { ContactsFormValues } from "./Contacts";
 
-type ContactsFormValues = {
-  name: string;
-  email: string;
-  message: string;
+type ContactsFormProps = {
+  defaultValues: ContactsFormValues;
 };
 
-const ContactsForm = () => {
-  const [defaultValues, setDefaultValues] = useState<ContactsFormValues>({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  useEffect(() => {
-    const savedFormData = localStorage.getItem("contactsFormData");
-    if (savedFormData) {
-      const formData = JSON.parse(savedFormData);
-      setDefaultValues({ ...formData, agreement: false });
-    }
-  }, []);
-
+const ContactsForm = ({ defaultValues }: ContactsFormProps) => {
   const {
     register,
     handleSubmit,
@@ -57,7 +42,11 @@ const ContactsForm = () => {
   ) => {
     console.log(data);
     localStorage.removeItem("contactsFormData");
-    reset();
+    reset({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   useEffect(() => {

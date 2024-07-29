@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, use } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -7,6 +7,11 @@ import content from "@/public/data/content.json";
 import useResponsive from "@/hooks/useResponsive";
 import { careerFormSchema } from "@/validation/careerFormSchema";
 import { formatPhoneNumber } from "@/helpers/formatPhone";
+import { CareerFormDefaultValues } from "./Career";
+
+type CareerFormProps = {
+  defaultValues: CareerFormDefaultValues;
+};
 
 type CareerFormValues = {
   name: string;
@@ -17,28 +22,14 @@ type CareerFormValues = {
   agreement?: boolean;
 };
 
-const CareerForm = () => {
+const CareerForm = ({ defaultValues }: CareerFormProps) => {
   const { isTablet } = useResponsive();
   const [isChecked, setIsChecked] = useState(false);
   const [formattedPhone, setFormattedPhone] = useState("");
 
-  const [defaultValues, setDefaultValues] = useState<CareerFormValues>({
-    name: "",
-    email: "",
-    position: "",
-    phone: "",
-    message: "",
-    agreement: false,
-  });
-
   useEffect(() => {
-    const savedFormData = localStorage.getItem("careerFormData");
-    if (savedFormData) {
-      const formData = JSON.parse(savedFormData);
-      setDefaultValues({ ...formData, agreement: false });
-      setFormattedPhone(formatPhoneNumber(formData.phone));
-    }
-  }, []);
+    setFormattedPhone(formatPhoneNumber(defaultValues.phone));
+  }, [defaultValues.phone]);
 
   const {
     register,
@@ -73,7 +64,14 @@ const CareerForm = () => {
   const onSubmit: SubmitHandler<CareerFormValues> = (data) => {
     console.log(data);
     localStorage.removeItem("careerFormData");
-    reset();
+    reset({
+      name: "",
+      email: "",
+      position: "",
+      phone: "",
+      message: "",
+      agreement: false,
+    });
     setFormattedPhone("");
     setIsChecked(false);
   };

@@ -4,8 +4,33 @@ import content from "@/public/data/content.json";
 import ContactsForm from "./ContactsForm";
 import Link from "next/link";
 import { formatPhoneNumberWithCode } from "@/helpers/formatPhone";
+import { useEffect, useState } from "react";
+
+export type ContactsFormValues = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 const Contacts = () => {
+  const [defaultValues, setDefaultValues] = useState<ContactsFormValues>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("contactsFormData");
+    if (savedFormData) {
+      const formData = JSON.parse(savedFormData);
+      setDefaultValues({ ...formData, agreement: false });
+    }
+
+    setIsLoaded(true);
+  }, []);
+
   return (
     <section
       id="contacts"
@@ -82,7 +107,7 @@ const Contacts = () => {
               </div>
             </div>
 
-            <ContactsForm />
+            {isLoaded && <ContactsForm defaultValues={defaultValues} />}
           </div>
         </div>
       </div>

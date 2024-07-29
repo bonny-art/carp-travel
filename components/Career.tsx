@@ -3,14 +3,43 @@
 import content from "@/public/data/content.json";
 import useResponsive from "@/hooks/useResponsive";
 import CareerForm from "./CareerForm";
+import { useEffect, useState } from "react";
+
+export type CareerFormDefaultValues = {
+  name: string;
+  email: string;
+  position: string;
+  phone: string;
+  message: string;
+  agreement: boolean;
+};
 
 const Career = () => {
   const { isMobile } = useResponsive();
+  const [defaultValues, setDefaultValues] = useState<CareerFormDefaultValues>({
+    name: "",
+    email: "",
+    position: "",
+    phone: "",
+    message: "",
+    agreement: false,
+  });
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("careerFormData");
+    if (savedFormData) {
+      const formData = JSON.parse(savedFormData);
+      setDefaultValues({ ...formData, agreement: false });
+    }
+
+    setIsLoaded(true);
+  }, []);
 
   return (
     <section
       id="career"
-      className=" md:py-16 lg:py-20 md:bg-career-md lg:bg-career-lg  "
+      className="md:py-16 lg:py-20 md:bg-career-md lg:bg-career-lg  "
     >
       {isMobile ? (
         <>
@@ -52,7 +81,7 @@ const Career = () => {
                 {content.career.slogan.first}
                 <br /> {content.career.slogan.second}
               </p>
-              <CareerForm />
+              {isLoaded && <CareerForm defaultValues={defaultValues} />}
             </div>
           </div>
         </>
@@ -97,7 +126,8 @@ const Career = () => {
                   {content.career.slogan.first}
                   <br /> {content.career.slogan.second}
                 </p>
-                <CareerForm />
+
+                {isLoaded && <CareerForm defaultValues={defaultValues} />}
               </div>
             </div>
           </div>
