@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   metadataBase:
     process.env.NODE_ENV === "development"
       ? new URL("http://localhost:3000")
-      : new URL("https://yourwebsite.vercel.app"),
+      : new URL("https://carp-travel-bonny-art.vercel.app/"),
   openGraph: {
     title: "CarpTravel",
     description: "Uncover Carpathian’s Secrets",
     type: "website",
-    url: "https://yourwebsite.com", // TODO: Update with your website URL
+    url: "https://carp-travel-bonny-art.vercel.app/",
     images: [
       {
         url: "/og-image.jpg",
