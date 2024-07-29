@@ -1,4 +1,3 @@
-// hooks/useResponsive.ts
 import { useState, useEffect } from "react";
 
 interface ResponsiveState {
