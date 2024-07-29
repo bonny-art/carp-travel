@@ -38,23 +38,31 @@ const Hero = () => {
             <>
               <div className="self-end uppercase">
                 <div className="flexStart">
-                  <p className="medium-37-auto-0 ">{content.HERO.subtitle.accent}</p>
-                  <p className="thin-37-auto-4_5">{content.HERO.subtitle.big}</p>
+                  <p className="medium-37-auto-0 ">
+                    {content.hero.subtitle.accent}
+                  </p>
+                  <p className="thin-37-auto-4_5">
+                    {content.hero.subtitle.big}
+                  </p>
                 </div>
-                <p className="light-12-auto-79 -mt-3">{content.HERO.subtitle.small}</p>
+                <p className="light-12-auto-79 -mt-3">
+                  {content.hero.subtitle.small}
+                </p>
               </div>
 
               <h1 className="thin-40-56--4 uppercase">
-                <span className="medium-40-56--4">{content.HERO.title.accent}</span>
-                {content.HERO.title.text}
+                <span className="medium-40-56--4">
+                  {content.hero.title.accent}
+                </span>
+                {content.hero.title.text}
               </h1>
 
               <p className="extraLight-10-16-0 w-[157px] break-words">
-                {content.HERO.places}
+                {content.hero.places}
               </p>
 
               <p className="extraLight-14-20-0 text-justify">
-                {content.HERO.description}
+                {content.hero.description}
               </p>
 
               <NavLink
@@ -68,15 +76,15 @@ const Hero = () => {
                 <Image
                   src={`/btn-${iconSize}-left.svg`}
                   alt="button-frame"
-                  width={content.HERO.button.iconSize.sm.width}
-                  height={content.HERO.button.iconSize.sm.height}
+                  width={content.hero.button.iconSize.sm.width}
+                  height={content.hero.button.iconSize.sm.height}
                 />
-                {content.HERO.button.label}
+                {content.hero.button.label}
                 <Image
                   src={`/btn-${iconSize}-right.svg`}
                   alt="button-frame"
-                  width={content.HERO.button.iconSize.sm.width}
-                  height={content.HERO.button.iconSize.sm.height}
+                  width={content.hero.button.iconSize.sm.width}
+                  height={content.hero.button.iconSize.sm.height}
                 />
               </NavLink>
             </>
@@ -86,12 +94,14 @@ const Hero = () => {
             <>
               <div className="w-[426px] lg:w-[646px] flexBetween flex-col">
                 <h1 className="w-full thin-67-auto--4 lg:thin-98-auto--4 uppercase">
-                  <span className="font-medium">{content.HERO.title.accent}</span>
-                  {content.HERO.title.text}
+                  <span className="font-medium">
+                    {content.hero.title.accent}
+                  </span>
+                  {content.hero.title.text}
                 </h1>
 
                 <p className="extraLight-14-16-9 lg:extraLight-16-24-9 w-[263px] lg:w-full break-words">
-                  {content.HERO.places}
+                  {content.hero.places}
                 </p>
               </div>
 
@@ -99,23 +109,27 @@ const Hero = () => {
                 <div className="self-end uppercase mb-14 lg:mb-[181px]">
                   <div className="flexStart">
                     <p className="medium-67-auto-0 lg:medium-98-auto-0">
-                      {content.HERO.subtitle.accent}
+                      {content.hero.subtitle.accent}
                     </p>
                     <p className="thin-67-auto-13 lg:thin-98-auto-0">
-                      {content.HERO.subtitle.big}
+                      {content.hero.subtitle.big}
                     </p>
                   </div>
                   <p className="light-14-auto-185 lg:light-16-auto-228 -mt-[15px]">
-                    {content.HERO.subtitle.small}
+                    {content.hero.subtitle.small}
                   </p>
                 </div>
 
                 <p className="extraLight-16-20-0 lg:extraLight-18-24-0 text-justify mb-7">
-                  {content.HERO.description}
+                  {content.hero.description}
                 </p>
 
-                <Link
-                  href="contacts"
+                <NavLink
+                  to="contacts"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  offset={0}
                   className="bold-18-auto-bold lg:bold-32-auto-0 inline-flex w-full justify-between items-center uppercase bg-white/10 hover:bg-white/20 focus:bg-white/20 focus:outline-none"
                 >
                   <Image
@@ -123,31 +137,31 @@ const Hero = () => {
                     alt="button-frame"
                     width={
                       iconSize === "md"
-                        ? content.HERO.button.iconSize.md.width
-                        : content.HERO.button.iconSize.lg.width
+                        ? content.hero.button.iconSize.md.width
+                        : content.hero.button.iconSize.lg.width
                     }
                     height={
                       iconSize === "md"
-                        ? content.HERO.button.iconSize.md.height
-                        : content.HERO.button.iconSize.lg.height
+                        ? content.hero.button.iconSize.md.height
+                        : content.hero.button.iconSize.lg.height
                     }
                   />
-                  {content.HERO.button.label}
+                  {content.hero.button.label}
                   <Image
                     src={`/btn-${iconSize}-right.svg`}
                     alt="button-frame"
                     width={
                       iconSize === "md"
-                        ? content.HERO.button.iconSize.md.width
-                        : content.HERO.button.iconSize.lg.width
+                        ? content.hero.button.iconSize.md.width
+                        : content.hero.button.iconSize.lg.width
                     }
                     height={
                       iconSize === "md"
-                        ? content.HERO.button.iconSize.md.height
-                        : content.HERO.button.iconSize.lg.height
+                        ? content.hero.button.iconSize.md.height
+                        : content.hero.button.iconSize.lg.height
                     }
                   />
-                </Link>
+                </NavLink>
               </div>
             </>
           )}

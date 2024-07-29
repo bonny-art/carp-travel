@@ -1,5 +1,5 @@
 {
-  "NAV": {
+  "nav": {
     "links": [
       { "key": "about", "label": "About" },
       { "key": "services", "label": "Services" },
@@ -12,7 +12,7 @@
       "close": "Close"
     }
   },
-  "HERO": {
+  "hero": {
     "subtitle": {
       "accent": "7",
       "big": "days",
@@ -42,7 +42,7 @@
       }
     }
   },
-  "ABOUT": {
+  "about": {
     "title": {
       "accent": "we are",
       "text": "Who "
@@ -61,7 +61,7 @@
       "third": "we have a tour for everyone."
     }
   },
-  "SERVICES": {
+  "services": {
     "title": {
       "accent": "offer",
       "text": "We "
@@ -128,7 +128,7 @@
       ]
     }
   },
-  "CAREER": {
+  "career": {
     "title": {
       "accent": "us",
       "text": "Choose "
@@ -192,7 +192,7 @@
       "button": "Send"
     }
   },
-  "GALLERY": {
+  "gallery": {
     "title": {
       "accent": "gallery",
       "text": "Our "
@@ -228,7 +228,7 @@
       "next": "Next"
     }
   },
-  "CONTACTS": {
+  "contacts": {
     "title": {
       "accent": "us",
       "text": "Contact "

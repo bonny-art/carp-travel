@@ -75,6 +75,7 @@ const CareerForm = () => {
     localStorage.removeItem("careerFormData");
     reset();
     setFormattedPhone("");
+    setIsChecked(false);
   };
 
   const toggleCheckbox = () => {
@@ -115,7 +116,7 @@ const CareerForm = () => {
                 errors.name ? "text-orange-50" : ""
               }`}
             >
-              {content.CAREER.form.name.label}
+              {content.career.form.name.label}
             </label>
             <input
               type="text"
@@ -132,12 +133,16 @@ const CareerForm = () => {
             />
             {errors.name && (
               <span className="extraLight-12-24-20 text-orange-50 inline-flex gap-1 absolute -bottom-[22px] right-0">
-                <Image
-                  src={"/incorrect.svg"}
-                  alt={"incorrect-icon"}
-                  width={18}
-                  height={18}
-                />
+                <span>
+                  <Image
+                    src={"/incorrect.svg"}
+                    alt={"incorrect-icon"}
+                    width={18}
+                    height={18}
+                    className="inline-block"
+                  />
+                </span>
+
                 {errors.name.message}
               </span>
             )}
@@ -151,7 +156,7 @@ const CareerForm = () => {
                 errors.email ? "text-orange-50" : ""
               }`}
             >
-              {content.CAREER.form.email.label}
+              {content.career.form.email.label}
             </label>
             <input
               type="email"
@@ -168,12 +173,15 @@ const CareerForm = () => {
             />
             {errors.email && (
               <span className="extraLight-12-24-20 text-orange-50 inline-flex gap-1 absolute -bottom-[22px] right-0">
-                <Image
-                  src={"/incorrect.svg"}
-                  alt={"incorrect-icon"}
-                  width={18}
-                  height={18}
-                />
+                <span>
+                  <Image
+                    src={"/incorrect.svg"}
+                    alt={"incorrect-icon"}
+                    width={18}
+                    height={18}
+                    className="inline-block"
+                  />
+                </span>
                 {errors.email.message}
               </span>
             )}
@@ -187,12 +195,12 @@ const CareerForm = () => {
                 errors.position ? "text-orange-50" : ""
               }`}
             >
-              {content.CAREER.form.position.label}
+              {content.career.form.position.label}
             </label>
             <input
               type="text"
               id="position"
-              placeholder={content.CAREER.form.position.placeholder}
+              placeholder={content.career.form.position.placeholder}
               {...register("position")}
               onBlur={() => trigger("position")}
               className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
@@ -203,12 +211,15 @@ const CareerForm = () => {
             />
             {errors.position && (
               <span className="extraLight-12-24-20 text-orange-50 inline-flex gap-1 absolute -bottom-[22px] right-0">
-                <Image
-                  src={"/incorrect.svg"}
-                  alt={"incorrect-icon"}
-                  width={18}
-                  height={18}
-                />
+                <span>
+                  <Image
+                    src={"/incorrect.svg"}
+                    alt={"incorrect-icon"}
+                    width={18}
+                    height={18}
+                    className="inline-block"
+                  />
+                </span>
                 {errors.position.message}
               </span>
             )}
@@ -222,16 +233,16 @@ const CareerForm = () => {
                 errors.phone ? "text-orange-50" : ""
               }`}
             >
-              {content.CAREER.form.phone.label}
+              {content.career.form.phone.label}
             </label>
             <span className="extraLight-13-24-0 lg:extraLight-20-24-0 absolute bottom-0 lg:bottom-0.5 left-2">
-              {content.CAREER.form.phone.placeholder.code}
+              {content.career.form.phone.placeholder.code}
             </span>
             <input
               type="text"
               id="phone"
               autoComplete="phone"
-              placeholder={content.CAREER.form.phone.placeholder.number}
+              placeholder={content.career.form.phone.placeholder.number}
               value={formattedPhone}
               onChange={handlePhoneChange}
               onBlur={handlePhoneBlur}
@@ -243,12 +254,15 @@ const CareerForm = () => {
             />
             {errors.phone && (
               <span className="extraLight-12-24-20 text-orange-50 inline-flex gap-1 absolute -bottom-[22px] right-0">
-                <Image
-                  src={"/incorrect.svg"}
-                  alt={"incorrect-icon"}
-                  width={18}
-                  height={18}
-                />
+                <span>
+                  <Image
+                    src={"/incorrect.svg"}
+                    alt={"incorrect-icon"}
+                    width={18}
+                    height={18}
+                    className="inline-block"
+                  />
+                </span>
                 {errors.phone.message}
               </span>
             )}
@@ -294,7 +308,7 @@ const CareerForm = () => {
               height={isTablet ? 22 : 24}
             />
             <span className="extraLight-12-22-0">
-              {content.CAREER.form.agreement}
+              {content.career.form.agreement}
             </span>
           </label>
         </div>
@@ -302,9 +316,11 @@ const CareerForm = () => {
         <button
           type="submit"
           disabled={!isValid}
-          className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end md:self-start focus:outline-none group relative"
+          className={`medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end md:self-start focus:outline-none group relative ${
+            !isValid && "text-white/50"
+          }`}
         >
-          {content.CAREER.form.button}
+          {content.career.form.button}
           <span
             className={`absolute bottom-0 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 ${

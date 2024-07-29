@@ -38,6 +38,7 @@ const Navbar = () => {
       <div className="flexBetween py-9 md:pt-6 md:pb-[60px] lg:pb-[46px] lg:px-6">
         <Link
           href="/"
+          aria-label="Homepage"
           className="group relative transition-transform duration-300 hover:scale-110 focus:scale-110 focus:outline-none "
         >
           <Image src="/logo.svg" alt="logo" width={61} height={36} />
@@ -48,7 +49,7 @@ const Navbar = () => {
         </Link>
 
         <ul className="hidden md:flex gap-6 lg:gap-14">
-          {content.NAV.links.map((link) => (
+          {content.nav.links.map((link) => (
             <li key={link.key} className="group relative self-end">
               <NavLink
                 to={link.key}
@@ -71,10 +72,11 @@ const Navbar = () => {
         {!isModalOpened && (
           <button
             type="button"
-            className="uppercase md:hidden regular-14-auto-10"
+            area-label="menu"
+            className="uppercase md:hidden regular-14-auto-10 inline-block"
             onClick={openModal}
           >
-            {content.NAV.button.menu}
+            {content.nav.button.menu}
           </button>
         )}
 

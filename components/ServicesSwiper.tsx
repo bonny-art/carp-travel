@@ -40,7 +40,7 @@ const ServicesSwiper = () => {
         modules={[EffectFade, Pagination]}
         className="mySwiper w-full h-full"
       >
-        {content.SERVICES.slides.content.map((item, index) => (
+        {content.services.slides.content.map((item, index) => (
           <SwiperSlide
             key={item.title}
             className={`w-full bg-services-${formatSlideNumber(
@@ -58,7 +58,7 @@ const ServicesSwiper = () => {
                     {formatSlideNumber(index + 1)}/
                     <span className="text-white/20">
                       {formatSlideNumber(
-                        content.SERVICES.slides.content.length
+                        content.services.slides.content.length
                       )}
                     </span>
                   </p>
@@ -87,12 +87,13 @@ const ServicesSwiper = () => {
       </Swiper>
 
       <div className="services-pagination">
-        {content.SERVICES.slides.list.map((item, index) => (
+        {content.services.slides.list.map((item, index) => (
           <button
             key={index}
+            type="button"
             className={`services-pagination-bullet ${
               index === activeIndex ? "services-pagination-bullet-active" : ""
-            } group relative`}
+            } group relative inline-block`}
             onClick={() => handleBulletClick(index)}
           >
             {index === activeIndex && (

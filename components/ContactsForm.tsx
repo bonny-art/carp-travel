@@ -79,13 +79,13 @@ const ContactsForm = () => {
                 errors.name ? "text-orange-50" : ""
               }`}
             >
-              {content.CONTACTS.form.name.label}
+              {content.contacts.form.name.label}
             </label>
             <input
               type="text"
               id="name"
               autoComplete="name"
-              placeholder={content.CONTACTS.form.name.placeholder}
+              placeholder={content.contacts.form.name.placeholder}
               {...register("name")}
               onBlur={() => trigger("name")}
               className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
@@ -96,12 +96,15 @@ const ContactsForm = () => {
             />
             {errors.name && (
               <span className="extraLight-12-24-20 text-orange-50 inline-flex gap-1 absolute -bottom-[22px] right-0">
-                <Image
-                  src={"/incorrect.svg"}
-                  alt={"incorrect-icon"}
-                  width={18}
-                  height={18}
-                />
+                <span>
+                  <Image
+                    src={"/incorrect.svg"}
+                    alt={"incorrect-icon"}
+                    width={18}
+                    height={18}
+                    className="inline-block"
+                  />
+                </span>
                 {errors.name.message}
               </span>
             )}
@@ -115,7 +118,7 @@ const ContactsForm = () => {
                 errors.email ? "text-orange-50" : ""
               }`}
             >
-              {content.CONTACTS.form.email.label}
+              {content.contacts.form.email.label}
             </label>
             <input
               type="email"
@@ -132,12 +135,15 @@ const ContactsForm = () => {
             />
             {errors.email && (
               <span className="extraLight-12-24-20 text-orange-50 inline-flex gap-1 absolute -bottom-[22px] right-0">
-                <Image
-                  src={"/incorrect.svg"}
-                  alt={"incorrect-icon"}
-                  width={18}
-                  height={18}
-                />
+                <span>
+                  <Image
+                    src={"/incorrect.svg"}
+                    alt={"incorrect-icon"}
+                    width={18}
+                    height={18}
+                    className="inline-block"
+                  />
+                </span>
                 {errors.email.message}
               </span>
             )}
@@ -152,7 +158,7 @@ const ContactsForm = () => {
               errors.message ? "text-orange-50" : ""
             }`}
           >
-            {content.CONTACTS.form.message.label}
+            {content.contacts.form.message.label}
           </label>
           <textarea
             id="message"
@@ -165,12 +171,15 @@ const ContactsForm = () => {
           />
           {errors.message && (
             <span className="extraLight-12-24-20 text-orange-50 inline-flex gap-1 absolute -bottom-[22px] right-0">
-              <Image
-                src={"/incorrect.svg"}
-                alt={"incorrect-icon"}
-                width={18}
-                height={18}
-              />
+              <span>
+                <Image
+                  src={"/incorrect.svg"}
+                  alt={"incorrect-icon"}
+                  width={18}
+                  height={18}
+                  className="inline-block"
+                />
+              </span>
               {errors.message.message}
             </span>
           )}
@@ -180,14 +189,16 @@ const ContactsForm = () => {
       <button
         type="submit"
         disabled={!isValid}
-        className="medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end focus:outline-none group relative"
+        className={`medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end focus:outline-none group relative ${
+          !isValid && "text-white/50"
+        }`}
       >
-        {content.CONTACTS.form.button}
+        {content.contacts.form.button}
         <span
           className={`absolute bottom-0 left-0 w-full h-[1px] bg-white
                 transform scale-x-0 ${
                   isValid && "group-hover:scale-x-100"
-                } group-focus:scale-x-100 transition-transform duration-300`}
+                }  group-focus:scale-x-100 transition-transform duration-300`}
         />
       </button>
     </form>

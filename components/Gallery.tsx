@@ -16,12 +16,12 @@ const Gallery = () => {
       <div className="max-container padding-container overflow-hidden ">
         <div className="lg:py-6 flexStart flex-col gap-6 md:gap-[72px] lg:gap-6 relative">
           <h2 className="thin-67-auto--4 lg:thin-98-auto--4 lg:ml-6 uppercase">
-            {content.GALLERY.title.text}
-            <span className="font-medium">{content.GALLERY.title.accent}</span>
+            {content.gallery.title.text}
+            <span className="font-medium">{content.gallery.title.accent}</span>
           </h2>
           {isMobile ? (
             <div className="flexStart flex-col gap-6">
-              {content.GALLERY.images.slice(0, 3).map((slide) => (
+              {content.gallery.images.slice(0, 3).map((slide) => (
                 <div key={slide.src}>
                   <Image
                     src={slide.src}
