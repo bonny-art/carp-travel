@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CarpTravel
+
+CarpTravel is a sleek, modern landing page designed for travel enthusiasts. It showcases various travel services, career opportunities, a stunning gallery, and a smooth contact experience. This project is built with cutting-edge technologies to provide a seamless and engaging user experience.
+
+![site screenshot](./public/og-image.jpg)
+
+## Table of Contents
+
+- [Demo](#demo)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Usage](#usage)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Demo
+
+Check out the live demo of [CarpTravel](https://carp-travel-bonny-art.vercel.app/) project.
+
+## Features
+
+- **Responsive Design**: Fully responsive from mobile to desktop with a mobile-first approach.
+- **Smooth Navigation**: Implements smooth scrolling for easy navigation between sections.
+- **Hero Section**: A captivating hero section with a call-to-action button.
+- **Dynamic Services Section**: A swiper-based slider with dynamic background images and engaging effects.
+- **Career Form Validation**: Utilizes `react-hook-form` and `yup` for form validation.
+- **Interactive Gallery**: Infinite slider with draggable functionality and responsive display.
+- **Contact Form**: Validated contact form with styled error messages.
 
 ## Getting Started
 
-First, run the development server:
+### Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+To get a local copy up and running, follow these simple steps:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bonny-art/carp-travel.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd carp-travel
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. To start the development server, run:
 
-## Learn More
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+   Open your browser. The application will be available at [http://localhost:3000](http://localhost:3000). You can start exploring the app from there.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Build the project for production:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm run build
+   ```
 
-## Deploy on Vercel
+3. Start the production server:
+   ```bash
+   npm start
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+CarpTravel leverages the power of the following technologies:
+
+- **Next.js**: A powerful React framework for server-side rendering and static site generation.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
+- **TypeScript**: A statically typed superset of JavaScript that enhances code quality and maintainability.
+- **Vercel**: Deployment platform for hosting and managing the project.
+- **React Scroll**: Library for smooth scrolling navigation.
+- **Swiper**: A powerful slider library for creating modern touch sliders with hardware-accelerated transitions.
+- **React Hook Form**: Library for form validation and handling.
+- **Yup**: Schema builder for validation.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature`').
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a pull request.
+
+## License
+
+This project is distributed under the MIT License.
