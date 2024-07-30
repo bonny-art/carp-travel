@@ -9,6 +9,9 @@ import { careerFormSchema } from "@/validation/careerFormSchema";
 import { formatPhoneNumber } from "@/helpers/formatPhone";
 import { CareerFormDefaultValues } from "./Career";
 
+import { Notify } from "notiflix";
+import { notiflixConfig } from "@/config/notiflixConfig";
+
 type CareerFormProps = {
   defaultValues: CareerFormDefaultValues;
 };
@@ -74,6 +77,10 @@ const CareerForm = ({ defaultValues }: CareerFormProps) => {
     });
     setFormattedPhone("");
     setIsChecked(false);
+    Notify.info("Your application was send successfully!", {
+      ...notiflixConfig,
+      cssAnimationStyle: "fade",
+    });
   };
 
   const toggleCheckbox = () => {

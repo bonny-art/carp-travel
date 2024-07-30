@@ -6,6 +6,8 @@ import content from "@/public/data/content.json";
 import { useCallback, useEffect, useState } from "react";
 import { contactsFormSchema } from "@/validation/contactsFormSchema";
 import { ContactsFormValues } from "./Contacts";
+import { Notify } from "notiflix";
+import { notiflixConfig } from "@/config/notiflixConfig";
 
 type ContactsFormProps = {
   defaultValues: ContactsFormValues;
@@ -46,6 +48,10 @@ const ContactsForm = ({ defaultValues }: ContactsFormProps) => {
       name: "",
       email: "",
       message: "",
+    });
+    Notify.info("Your application was send successfully!", {
+      ...notiflixConfig,
+      cssAnimationStyle: "fade",
     });
   };
 
