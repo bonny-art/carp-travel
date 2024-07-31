@@ -47,39 +47,35 @@ const ServicesSwiper = () => {
               index + 1
             )}-xs py-14 md:py-16 lg:py-20`}
           >
-            <div className="h-full max-container padding-container overflow-hidden">
-              <div className="lg:p-6 h-full md:relative">
-                <div className="flexBetween flex-col h-full md:w-[221px] lg:w-[605px] md:ml-auto">
-                  <p
-                    className={`mt-[78px] md:mt-0 thin-43-auto-0 md:thin-67-78-0 lg:thin-98-auto-0 self-end lg:self-start mb-4 md:mb-[237px] ${getMarginBottomValue(
-                      activeIndex
-                    )}`}
-                  >
-                    {formatSlideNumber(index + 1)}/
-                    <span className="text-white/20">
-                      {formatSlideNumber(
-                        content.services.slides.content.length
-                      )}
-                    </span>
-                  </p>
+            <div className="h-full container md:relative lg:py-6">
+              <div className="flexBetween flex-col h-full md:w-[221px] lg:w-[605px] md:ml-auto">
+                <p
+                  className={`mt-[78px] md:mt-0 thin-43-auto-0 md:thin-67-78-0 lg:thin-98-auto-0 self-end lg:self-start mb-4 md:mb-[237px] ${getMarginBottomValue(
+                    activeIndex
+                  )}`}
+                >
+                  {formatSlideNumber(index + 1)}/
+                  <span className="text-white/20">
+                    {formatSlideNumber(content.services.slides.content.length)}
+                  </span>
+                </p>
 
-                  <div className="w-full md:w-[463px] lg:w-[607px] h-[213px] md:h-[370px] lg:h-[429px] mb-3 self-center shadow-services-slide-shadow md:absolute md:top-[118px] md:left-0 lg:top-[166px] lg:left-6">
-                    <Image
-                      src={`/img-servicer-${formatSlideNumber(index + 1)}.jpg`}
-                      alt={item.title}
-                      width={560}
-                      height={426}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="extraLight-12-24-20 self-end mb-auto lg:w-[293px]">
-                    {item.slogan}
-                  </p>
-
-                  <p className="extraLight-14-20-0 md:extraLight-13-20-0 lg:extraLight-18-24-0 lg:w-[293px] lg:self-end md:text-justify ">
-                    {item.description}
-                  </p>
+                <div className="w-full md:w-[463px] lg:w-[607px] h-[213px] md:h-[370px] lg:h-[429px] mb-3 self-center shadow-services-slide-shadow md:absolute md:top-[118px] md:left-8 lg:top-[166px] lg:left-6">
+                  <Image
+                    src={`/img-servicer-${formatSlideNumber(index + 1)}.jpg`}
+                    alt={item.title}
+                    width={560}
+                    height={426}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
+                <p className="extraLight-12-24-20 self-end mb-auto lg:w-[293px]">
+                  {item.slogan}
+                </p>
+
+                <p className="extraLight-14-20-0 md:extraLight-13-20-0 lg:extraLight-18-24-0 lg:w-[293px] lg:self-end md:text-justify ">
+                  {item.description}
+                </p>
               </div>
             </div>
           </SwiperSlide>

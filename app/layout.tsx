@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header>
+        <header className="py-9 md:pt-6 md:pb-[60px] lg:pb-[46px]">
           <Navbar />
         </header>
 

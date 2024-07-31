@@ -28,10 +28,7 @@ module.exports = {
       screens: {
         sm: "480px",
         md: "768px",
-        lg: "1440px",
-        "sm+": "481px",
-        "md+": "769px",
-        "lg+": "1441px",
+        lg: "1280px",
       },
       borderRadius: {
         "5xl": "40px",
@@ -42,6 +39,15 @@ module.exports = {
       boxShadow: {
         "services-slide-shadow": "0 0 100px 0 rgba(9, 20, 16, 0.5)",
         "gallery-slide-shadow": "0px 4px 4px rgba(0, 0, 0, 0.25)",
+      },
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "20px",
+        sm: "20px",
+        md: "32px",
+        lg: "24px",
       },
     },
   },

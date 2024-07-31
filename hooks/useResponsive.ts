@@ -19,8 +19,8 @@ function useResponsive(): ResponsiveState {
         const width = window.innerWidth;
         setResponsive({
           isMobile: width < 768,
-          isTablet: width >= 768 && width < 1440,
-          isDesktop: width >= 1440,
+          isTablet: width >= 768 && width < 1280,
+          isDesktop: width >= 1280,
         });
       };
 

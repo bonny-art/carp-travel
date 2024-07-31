@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap");
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
@@ -18,11 +18,11 @@ body {
 
 @layer utilities {
   .max-container {
-    @apply mx-auto sm:max-w-[480px] md:max-w-[768px] lg:max-w-[1440px];
+    @apply mx-auto sm:max-w-[480px] md:max-w-[768px] lg:max-w-[1280px];
   }
 
   .padding-container {
-    @apply px-5 md:px-8 lg:px-[80px];
+    @apply px-5 md:px-8 lg:px-[24px];
   }
 
   .flexCenter {
