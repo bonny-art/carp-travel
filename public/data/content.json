@@ -83,7 +83,8 @@
             "lg": "bg-services-01-lg"
           },
           "slogan": "Feel the adrenaline rush",
-          "description": "Join exciting rafting expeditions on the waterways of the Carpathians. Go through challenging waterways and overcome gusty waves, feel the adrenaline, and enjoy the incredible views of the surrounding mountains."
+          "description": "Join exciting rafting expeditions on the waterways of the Carpathians. Go through challenging waterways and overcome gusty waves, feel the adrenaline, and enjoy the incredible views of the surrounding mountains.",
+          "alt": "A person riding an ATV through rugged off-road terrain"
         },
         {
           "title": "Rock climbing",
@@ -93,7 +94,8 @@
             "lg": "bg-services-02-lg"
           },
           "slogan": "Destroy your limitations",
-          "description": "Overcome the peaks of the Carpathians in a unique way - climbing. Make your own way to the heights and find inner peace in the embrace of the mighty rocks."
+          "description": "Overcome the peaks of the Carpathians in a unique way - climbing. Make your own way to the heights and find inner peace in the embrace of the mighty rocks.",
+          "alt": "People walking up a mountain trail"
         },
         {
           "title": "Hot air ballooning",
@@ -103,7 +105,8 @@
             "lg": "bg-services-03-lg"
           },
           "slogan": "Get Inspired",
-          "description": "Feel Zen over the mountain peaks! Hot air ballooning gives you incredible impressions and panoramas of the Carpathians that seem endless."
+          "description": "Feel Zen over the mountain peaks! Hot air ballooning gives you incredible impressions and panoramas of the Carpathians that seem endless.",
+          "alt": "A hot air balloon flying over rural countryside"
         },
         {
           "title": "Skydiving",
@@ -113,7 +116,8 @@
             "lg": "bg-services-04-lg"
           },
           "slogan": "Overcome your fears",
-          "description": "Fly in the sky over the Carpathians! Experienced instructors will help you realize your dream of free flight. Remember the incredible emotions and panoramas from a bird's eye view forever."
+          "description": "Fly in the sky over the Carpathians! Experienced instructors will help you realize your dream of free flight. Remember the incredible emotions and panoramas from a bird's eye view forever.",
+          "alt": "A person skydiving over a mountain range"
         },
         {
           "title": "Rafting",
@@ -123,7 +127,8 @@
             "lg": "bg-services-05-lg"
           },
           "slogan": "Trust the flow",
-          "description": "Join exciting rafting expeditions on the waterways of the Carpathians. Go through challenging waterways and overcome gusty waves, feel the adrenaline, and enjoy the incredible views of the surrounding mountains."
+          "description": "Join exciting rafting expeditions on the waterways of the Carpathians. Go through challenging waterways and overcome gusty waves, feel the adrenaline, and enjoy the incredible views of the surrounding mountains.",
+          "alt": "People rafting down a river in the mountains"
         }
       ]
     }
@@ -200,27 +205,27 @@
     "images": [
       {
         "src": "/img-gallery-01.jpg",
-        "alt": "Gallery image Mountain"
+        "alt": "A hiker's path winds along a sharp mountain ridge covered in lush greenery, with a misty valley stretching out below."
       },
       {
         "src": "/img-gallery-02.jpg",
-        "alt": "Gallery image Lake"
+        "alt": "A serene mountain lake surrounded by lush green pine forests, with a small wooden cabin nestled in a clearing."
       },
       {
         "src": "/img-gallery-03.jpg",
-        "alt": "Gallery image Forest"
+        "alt": "A wooden cabin nestled amidst a lush, green forest with a small river flowing nearby."
       },
       {
         "src": "/img-gallery-01.jpg",
-        "alt": "Gallery image Mountain"
+        "alt": "A hiker's path winds along a sharp mountain ridge covered in lush greenery, with a misty valley stretching out below."
       },
       {
         "src": "/img-gallery-02.jpg",
-        "alt": "Gallery image Lake"
+        "alt": "A serene mountain lake surrounded by lush green pine forests, with a small wooden cabin nestled in a clearing."
       },
       {
         "src": "/img-gallery-03.jpg",
-        "alt": "Gallery image Forest"
+        "alt": "A wooden cabin nestled amidst a lush, green forest with a small river flowing nearby."
       }
     ],
     "buttons": {

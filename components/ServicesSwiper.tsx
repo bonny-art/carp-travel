@@ -63,7 +63,7 @@ const ServicesSwiper = () => {
                 <div className="w-full md:w-[463px] lg:w-[607px] h-[213px] md:h-[370px] lg:h-[429px] mb-3 self-center shadow-services-slide-shadow md:absolute md:top-[118px] md:left-8 lg:top-[166px] lg:left-6">
                   <Image
                     src={`/img-servicer-${formatSlideNumber(index + 1)}.jpg`}
-                    alt={item.title}
+                    alt={item.alt}
                     width={560}
                     height={426}
                     className="w-full h-full object-cover"
