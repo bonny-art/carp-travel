@@ -276,7 +276,7 @@ body {
   }
 
   .services-pagination-bullet {
-    @apply extraLight-20-17-0 md:extraLight-22-18-0 lg:extraLight-28-24-0 text-white/50 uppercase text-start focus:outline-none hover:text-white w-fit inline-flex;
+    @apply extraLight-20-17-0 md:extraLight-22-18-0 lg:extraLight-28-24-0 text-white/50 uppercase text-start hover:text-white w-fit inline-flex;
     transition: color 0.3s ease, transform 0.3s ease;
   }
 

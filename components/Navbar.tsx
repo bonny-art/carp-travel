@@ -35,7 +35,8 @@ const Navbar = () => {
       <Link
         href="/"
         aria-label="Homepage"
-        className="group relative transition-transform duration-300 hover:scale-110 focus:scale-110 focus:outline-none "
+        tabIndex={0}
+        className="group relative transition-transform duration-300 hover:scale-110 focus:scale-110 "
       >
         <Image src="/logo.svg" alt="logo" width={61} height={36} />
         <span
@@ -53,7 +54,8 @@ const Navbar = () => {
               smooth={true}
               duration={500}
               offset={0}
-              className="group cursor-pointer regular-14-auto-10 focus:outline-none"
+              tabIndex={0}
+              className="group cursor-pointer regular-14-auto-10"
             >
               {link.label}
               <span

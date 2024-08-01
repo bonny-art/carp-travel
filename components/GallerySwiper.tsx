@@ -56,7 +56,7 @@ const GallerySwiper = () => {
           <div className="w-[85px] lg:w-[289px] flex justify-end">
             <button
               type="button"
-              className="galley-swiper-button-prev thin-33-auto-0 uppercase inline-flex focus:outline-none group relative"
+              className="galley-swiper-button-prev thin-33-auto-0 uppercase inline-flex group relative"
             >
               {content.gallery.buttons.prev}
               <span
@@ -68,7 +68,7 @@ const GallerySwiper = () => {
           <div className="w-[85px] lg:w-[289px] flex justify-start">
             <button
               type="button"
-              className="galley-swiper-button-next thin-33-auto-0 uppercase inline-flex focus:outline-none group relative"
+              className="galley-swiper-button-next thin-33-auto-0 uppercase inline-flex group relative"
             >
               {content.gallery.buttons.next}
               <span

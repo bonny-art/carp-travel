@@ -83,7 +83,7 @@ const ContactsForm = ({ defaultValues }: ContactsFormProps) => {
               placeholder={content.contacts.form.name.placeholder}
               {...register("name")}
               onBlur={() => trigger("name")}
-              className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
+              className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:ring-[1px] focus:ring-white/50 ${
                 errors.name ? "text-orange-50" : ""
               } ${
                 nameValue ? "bg-white/10" : "bg-white/5"
@@ -122,7 +122,7 @@ const ContactsForm = ({ defaultValues }: ContactsFormProps) => {
               placeholder="johnsmith@email.com"
               {...register("email")}
               onBlur={() => trigger("email")}
-              className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
+              className={`block w-full lg:h-7 px-2 extraLight-13-24-0 lg:extraLight-20-24-0 focus:ring-[1px] focus:ring-white/50 ${
                 errors.name ? "text-orange-50" : ""
               } ${
                 emailValue ? "bg-white/10" : "bg-white/5"
@@ -160,7 +160,7 @@ const ContactsForm = ({ defaultValues }: ContactsFormProps) => {
             placeholder=""
             {...register("message")}
             onBlur={() => trigger("message")}
-            className={`block w-full h-[196px] md:h-[228px] lg:h-[268px] px-2 extraLight-13-24-0 lg:extraLight-20-24-0 resize-none focus:outline-none focus:ring-[1px] focus:ring-white/50 ${
+            className={`block w-full h-[196px] md:h-[228px] lg:h-[268px] px-2 extraLight-13-24-0 lg:extraLight-20-24-0 resize-none focus:ring-[1px] focus:ring-white/50 ${
               errors.message ? "text-orange-50" : ""
             } ${messageValue ? "bg-white/10" : "bg-white/5"}`}
           />
@@ -184,7 +184,7 @@ const ContactsForm = ({ defaultValues }: ContactsFormProps) => {
       <button
         type="submit"
         disabled={!isValid}
-        className={`medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end focus:outline-none group relative ${
+        className={`medium-30-auto-0 lg:medium-32-auto-0 uppercase inline-block self-end group relative ${
           !isValid && "text-white/50"
         }`}
       >

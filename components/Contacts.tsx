@@ -51,7 +51,7 @@ const Contacts = () => {
                     <li key={index} className="text-end">
                       <Link
                         href={`tel:${item}`}
-                        className="regular-14-24-0 md:regular-16-24-0 lg:regular-18-24-0 focus:outline-none group relative"
+                        className="regular-14-24-0 md:regular-16-24-0 lg:regular-18-24-0 group relative"
                       >
                         {formatPhoneNumberWithCode(item)}
                         <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300" />
@@ -70,7 +70,7 @@ const Contacts = () => {
                     <li key={index} className="text-end">
                       <Link
                         href={`mailto:${item}`}
-                        className="regular-14-24-0 md:regular-16-24-0 lg:regular-18-24-0 focus:outline-none group relative"
+                        className="regular-14-24-0 md:regular-16-24-0 lg:regular-18-24-0 group relative"
                       >
                         {item}
                         <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300" />
@@ -93,7 +93,7 @@ const Contacts = () => {
                   <li key={index} className="lg:text-end">
                     <Link
                       href={item.link}
-                      className="regular-14-24-0 md:regular-16-24-0 lg:regular-18-24-0 focus:outline-none group relative"
+                      className="regular-14-24-0 md:regular-16-24-0 lg:regular-18-24-0 group relative"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
