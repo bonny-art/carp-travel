@@ -70,7 +70,7 @@ const Navbar = () => {
       {!isModalOpened && (
         <button
           type="button"
-          area-label="menu"
+          aria-label="menu"
           className="uppercase md:hidden regular-14-auto-10 inline-block"
           onClick={openModal}
         >
